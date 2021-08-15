@@ -44,6 +44,7 @@ const dotenv = require("dotenv").config();
 
 // Local imports.
 const indexRouter = require("./routes/index");
+const loginRouter = require("./routes/logmein");
 const stillsRouter = require("./routes/stills");
 const profileRouter = require("./routes/profile");
 const asIsRouter = require("./routes/asis");
@@ -85,6 +86,7 @@ app.use(favicon(__dirname+"/public/favicon.ico"));
 
 // ROUTES.
 app.use("/", indexRouter);
+app.use("/logmein", loginRouter);
 app.use("/profile",
         require("connect-ensure-login").ensureLoggedIn(),
         profileRouter);
@@ -94,11 +96,11 @@ app.use("/asis",
 app.use("/stills", stillsRouter);
 app.use("/uploads", require("connect-ensure-login").ensureLoggedIn(),
         uploadsRouter);
-app.get("/login", function(req, res){ res.redirect("/"); });
-app.post("/login",
-         passport.authenticate("local", { failureRedirect: "/login" }),
-         function(req, res){ res.redirect("/"); }
-);
+app.get("/login", function(req, res){ res.redirect("/logmein"); });
+app.post(
+    "/login",
+    passport.authenticate("local", { failureRedirect: "/logmein/failure" }),
+    function(req, res){ res.redirect("/logmein/success"); });
 app.get("/logout", function(req, res){ req.logout(); res.redirect("/"); });
 
 // Catch 404 and forward to error handler.

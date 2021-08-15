@@ -4,7 +4,7 @@
 # application.
 
 # Constants.
-APP_NAME="hgmj"
+APP_NAME="st-marys-edlington"
 
 # Check that we're logged into Heroku.
 if ! heroku whoami >/dev/null; then
