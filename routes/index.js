@@ -6,7 +6,7 @@ Returns the home page.
 const express = require("express");
 
 // Local imports.
-const Finaliser = require("lib/finaliser.js");
+const Finaliser = require("../lib/finaliser.js");
 
 // Constants.
 const router = express.Router();
