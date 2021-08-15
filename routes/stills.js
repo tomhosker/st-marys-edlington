@@ -23,7 +23,7 @@ router.get("/:id", function(req, res, next){
 // A helper function.
 function getTitle(code)
 {
-    const result;
+    let result;
 
     if(code === "delete") result = "How to Delete a Journal Entry";
     else if(code === "key") result = "Key";
