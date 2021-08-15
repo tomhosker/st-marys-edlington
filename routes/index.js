@@ -2,11 +2,13 @@
 Returns the home page.
 */
 
+console.log(require.paths);
+
 // Imports.
 const express = require("express");
 
 // Local imports.
-const Finaliser = require("/app/lib/finaliser.js");
+const Finaliser = require("../lib/finaliser.js");
 
 // Constants.
 const router = express.Router();
