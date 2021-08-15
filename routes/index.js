@@ -2,8 +2,6 @@
 Returns the home page.
 */
 
-console.log(require.paths);
-
 // Imports.
 const express = require("express");
 
