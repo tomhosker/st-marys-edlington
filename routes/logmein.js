@@ -33,7 +33,7 @@ router.get("/success", function(req, res, next){
     }
     else
     {
-        req.redirect("/login");
+        res.redirect("/login");
     }
 });
 
