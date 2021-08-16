@@ -6,15 +6,15 @@ Returns the home page.
 const express = require("express");
 
 // Local imports.
-const Finaliser = require("../lib/finaliser.js");
+const Scraper = require("../lib/scraper.js");
 
 // Constants.
 const router = express.Router();
-const finaliser = new Finaliser();
+const scraper = new Scraper();
 
 // GET home page.
 router.get("/", function(req, res, next){
-    finaliser.protoRender(req, res, "index", { title: "Welcome" });
+    scraper.scrapeIndex(req, res);
 });
 
 module.exports = router;
