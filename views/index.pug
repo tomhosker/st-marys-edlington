@@ -1,5 +1,17 @@
 extends layout
 
 block content
-    h1 #{title}
-    p Welcome!
+    h1 Service Times
+
+    table
+        tr
+            th Service
+            th Weekday
+            th Time
+            th Location
+        for service in serviceTimes
+            tr
+                td service.service_type
+                td service.weekdayString
+                td service.time
+                td service.locationName
