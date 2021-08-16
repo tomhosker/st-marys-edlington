@@ -4,7 +4,10 @@
 -- Remember that PostgreSQL will changes the names of columns, tables, etc
 -- to all lower case unless quotation marks are used.
 
+DROP TABLE IF EXISTS ServiceTime;
+DROP TABLE IF EXISTS Contact;
 DROP TABLE IF EXISTS RealWorldAddress;
+
 CREATE TABLE RealWorldAddress
 (
     code VARCHAR(99) PRIMARY KEY,
@@ -12,11 +15,11 @@ CREATE TABLE RealWorldAddress
     house_name VARCHAR(99),
     house_number INT,
     road_name VARCHAR(99),
+    town VARCHAR(99),
     post_town VARCHAR(99),
     postcode VARCHAR(99)
 );
 
-DROP TABLE IF EXISTS Contact;
 CREATE TABLE Contact
 (
     code VARCHAR(99) PRIMARY KEY,
@@ -27,11 +30,10 @@ CREATE TABLE Contact
     email VARCHAR(99),
     address VARCHAR(99),
     CONSTRAINT fk_address
-        FOREIGN KEY(haddress)
+        FOREIGN KEY(address)
             REFERENCES RealWorldAddress(code)
 );
 
-DROP TABLE IF EXISTS ServiceTime;
 CREATE TABLE ServiceTime
 (
     id SERIAL PRIMARY KEY,

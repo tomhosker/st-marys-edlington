@@ -20,7 +20,9 @@ console.log(req.user);
 
 // Return the page telling the user that he logged in successfully.
 router.get("/success", function(req, res, next){
-    finaliser.protoRender(req, res, "loginsuccess", { title: "Success" });
+    finaliser.protoRender(
+        req, res, "loginsuccess",
+        { title: "Success", username: req.user.username });
 });
 
 // Redirect the user to the login page, with a message saying that his
