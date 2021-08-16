@@ -3,13 +3,15 @@ extends layout
 block content
     div.helpbox
         h2 Parish Priest
-        p #[b Priest Full Name]
+        p #[b #{parishPriest.full_name}]
             br
-            | #[i Presbytery] &nbsp; 0123456789
+            | #[i Presbytery] &nbsp; #{parishPriest.landline}
             br
-            | #[i Mobile] &nbsp; 0123456789
+            | #[i Mobile] &nbsp; #{parishPriest.mobile}
             br
-            | #[i Email] &nbsp; himself@email.com
+            | #[i Email] &nbsp; #{parishPriest.email}
+            br
+            | #[i Post] &nbsp; #{parishPriest.address_name}
 
         h2 Location
         p 1 Road Name
