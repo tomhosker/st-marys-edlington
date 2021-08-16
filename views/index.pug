@@ -11,7 +11,7 @@ block content
             th Location
         for service in serviceTimes
             tr
-                td service.service_type
-                td service.weekdayString
-                td service.time
-                td service.locationName
+                td=service.service_type
+                td=service.weekdayString
+                td=service.time
+                td=service.locationName
