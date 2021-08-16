@@ -14,4 +14,4 @@ fi
 gnome-terminal -- heroku pg:psql --app $APP_NAME
 
 # Run the below in order to run an SQL script.
-#     heroku pg:psql --app st-marys-edlington < create_drop.sql
+#     heroku pg:psql --app st-marys-edlington < path/to/script

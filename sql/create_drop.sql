@@ -4,6 +4,7 @@
 -- Remember that PostgreSQL will changes the names of columns, tables, etc
 -- to all lower case unless quotation marks are used.
 
+DROP TABLE IF EXISTS ParishRole;
 DROP TABLE IF EXISTS ServiceTime;
 DROP TABLE IF EXISTS Contact;
 DROP TABLE IF EXISTS RealWorldAddress;
@@ -42,8 +43,18 @@ CREATE TABLE ServiceTime
     minutes INT NOT NULL DEFAULT 0,
     length_in_minutes INT,
     location VARCHAR(99) NOT NULL DEFAULT 'st-marys-edlington',
-    one_off BOOLEAN NOT NULL DEFAULT TRUE,
+    service_type VARCHAR(99) NOT NULL DEFAULT 'Mass',
     CONSTRAINT fk_location
         FOREIGN KEY(location)
             REFERENCES RealWorldAddress(code)
-)
+);
+
+CREATE TABLE ParishRole
+(
+    code VARCHAR(99) PRIMARY KEY,
+    description VARCHAR(99) NOT NULL DEFAULT 'INSERT ROLE DESCRIPTION HERE',
+    contact VARCHAR(99) NOT NULL DEFAULT 'father-john',
+    CONSTRAINT fk_contact
+        FOREIGN KEY(contact)
+            REFERENCES Contact(code)
+);
