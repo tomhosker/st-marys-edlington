@@ -14,13 +14,15 @@ block content
             | #[i Post] &nbsp; #{parishPriest.address_name}
 
         h2 Location
-        p 1 Road Name
+        p #{location.house_name}
             br
-            | Town
+            | #{location.firstLine}
             br
-            | Post town
+            | #{location.town}
             br
-            | POST CODE
+            | #{location.post_town}
+            br
+            | #{location.postcode}
 
     h1 Service Times
 
