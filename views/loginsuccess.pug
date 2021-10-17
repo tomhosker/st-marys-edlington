@@ -4,9 +4,3 @@ block content
     h1 #{title}
 
     p You are now logged in as #[b #{username}].
-
-    if isAdmin
-        h2 Hidden Pages
-        p Because you're logged in as admin, you now have sufficient privileges to view this website's hidden pages:
-        ul
-            li #[a(href="/asis") View the this website's database &ldquo;as is&rdquo;.]
