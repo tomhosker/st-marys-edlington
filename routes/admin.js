@@ -16,7 +16,7 @@ const router = express.Router();
 
 // GET home page.
 router.get("/", function (req, res, next) {
-    finaliser.protoRender(req, res, code, { title: "Admin Area" });
+    finaliser.protoRender(req, res, { title: "Admin Area" });
 });
 
 module.exports = router;
