@@ -14,7 +14,7 @@ const scraper = new Scraper();
 
 // GET home page.
 router.get("/", function (req, res, next) {
-  scraper.scrapeIndex(req, res);
+    scraper.scrapeIndex(req, res);
 });
 
 module.exports = router;
