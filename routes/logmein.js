@@ -20,15 +20,10 @@ router.get("/", function (req, res, next) {
 
 // Return the page telling the user that he logged in successfully.
 router.get("/success", function (req, res, next) {
-    let isAdmin = false;
-
     if (req.user) {
-        if (req.user.username === "admin") isAdmin = true;
-
         finaliser.protoRender(req, res, "loginsuccess", {
             title: "Success",
             username: req.user.username,
-            isAdmin: isAdmin,
         });
     } else {
         res.redirect("/login");

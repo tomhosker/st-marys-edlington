@@ -58,6 +58,7 @@ const stillsRouter = require("./routes/stills");
 const profileRouter = require("./routes/profile");
 const asIsRouter = require("./routes/asis");
 const uploadsRouter = require("./routes/uploads");
+const adminRouter = require("./routes/admin");
 
 // Error codes.
 const notFound = 404;
@@ -116,6 +117,11 @@ app.use(
 app.get("/login", function (req, res) {
     res.redirect("/logmein");
 });
+app.use(
+    "/admin",
+    require("connect-ensure-login").ensureLoggedIn(),
+    adminRouter
+);
 app.post(
     "/login",
     passport.authenticate("local", { failureRedirect: "/logmein/failure" }),
