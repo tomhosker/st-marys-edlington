@@ -57,6 +57,7 @@ bbox {
     display: block;
     width: 100%;
     float: left;
+    margin-bottom: 1em;
 }
 
 span.zero-colour {
