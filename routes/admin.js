@@ -6,7 +6,7 @@ Routes the admin pages.
 const express = require("express");
 
 // Local imports.
-const Finaliser = require("./finaliser.js");
+const Finaliser = require("../lib/finaliser.js");
 
 // Constant objects.
 const finaliser = new Finaliser();
