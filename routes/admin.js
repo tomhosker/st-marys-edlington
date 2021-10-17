@@ -19,4 +19,19 @@ router.get("/", function (req, res, next) {
     finaliser.protoRender(req, res, "admin", { title: "Admin Area" });
 });
 
+router.get("/upload/:id", function (req, res, next) {
+    let properties;
+    let action = "/uploads/insert2/"+req.params.id;
+
+    if (req.params.id === "ServiceTime") {
+        properties = {
+            title: "Add a New Service Time",
+            formAction: action
+        };
+        finaliser.protoRender(req, res, "upload2ServiceTime", properties);
+    } else {
+        res.redirect("/");
+    }
+});
+
 module.exports = router;

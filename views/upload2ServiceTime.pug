@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    h1=title
+
+    p Add a new record?
+    form(action=formAction, method="post")
+        p
+            | Service type:
+            input(type="text", name="Type")
+        p
+            | Service time:
+            input(type="time", name="Time")
+
+        for column in columns
+            p
+                | #{column.name}: 
+                input(type=column.type, name=column.name)
+        input(type="submit", value="Submit")
