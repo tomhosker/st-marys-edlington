@@ -7,8 +7,10 @@
 APP_NAME="st-marys-edlington"
 
 # Check that we're logged into Heroku.
-if ! heroku whoami >/dev/null; then
-    heroku login
+if ! heroku whoami >/dev/null 2>&1; then
+    if ! heroku login; then
+        exit 1
+    fi
 fi
 
 gnome-terminal -- heroku pg:psql --app $APP_NAME
