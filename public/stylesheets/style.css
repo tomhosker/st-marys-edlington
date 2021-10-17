@@ -53,6 +53,12 @@ a:visited {
   color: blue;
 }
 
+bbox {
+    display: block;
+    width: 100%;
+    float: left;
+}
+
 span.zero-colour {
   color: rgb(0, 255, 0);
 }
