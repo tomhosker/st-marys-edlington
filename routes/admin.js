@@ -7,6 +7,7 @@ const express = require("express");
 
 // Local imports.
 const Finaliser = require("../lib/finaliser.js");
+const Scraper = require("../lib/scraper.js");
 
 // Constant objects.
 const finaliser = new Finaliser();
