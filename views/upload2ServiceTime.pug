@@ -17,6 +17,7 @@ block content
         p
             | Service weekday:
             select(id="weekday", name="weekday")
+                option(value="-1") N/A
                 option(value="0") Sunday
                 option(value="1") Monday
                 option(value="2") Tueday
@@ -29,4 +30,7 @@ block content
             select(id="location", name="location")
                 for row in data.realWorldAddresses.rows
                     option(value=row[0]) #{row[1]}
+        p
+            | Remarks:
+            input(type="text", name="remarks", required)
         input(type="submit", value="Submit")
