@@ -12,7 +12,7 @@ const Uploader = require("../lib/uploader.js");
 const router = express.Router();
 const uploader = new Uploader();
 
-// Execute an upload to the JournalEntry table.
+// Execute the addition of a new service time.
 router.post("/insert2/ServiceTime", function (req, res, next) {
     uploader.insertNewServiceTime(req, res, "ServiceTime");
 });
