@@ -7,8 +7,28 @@ block content
     form(action=formAction, method="post")
         p
             | Service type:
-            input(type="text", name="Type")
+            input(type="text", name="type")
         p
             | Service time:
-            input(type="time", name="Time")
+            input(type="time", name="time")
+        p
+            | Service date:
+            input(type="date", name="date")
+        p
+            | Service weekday:
+            select(id="weekday", name="weekday")
+                option(value="0")
+                    Sunday
+                option(value="1")
+                    Monday
+                option(value="2")
+                    Tueday
+                option(value="3")
+                    Wednesday
+                option(value="4")
+                    Thurday
+                option(value="5")
+                    Friday
+                option(value="6")
+                    Saturday
         input(type="submit", value="Submit")
