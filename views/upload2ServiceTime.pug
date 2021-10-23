@@ -11,9 +11,4 @@ block content
         p
             | Service time:
             input(type="time", name="Time")
-
-        for column in columns
-            p
-                | #{column.name}: 
-                input(type=column.type, name=column.name)
         input(type="submit", value="Submit")
