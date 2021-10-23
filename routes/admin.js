@@ -10,6 +10,7 @@ const Finaliser = require("../lib/finaliser.js");
 
 // Constant objects.
 const finaliser = new Finaliser();
+const scraper = new Scraper();
 
 // Constants.
 const router = express.Router();
@@ -19,6 +20,7 @@ router.get("/", function (req, res, next) {
     finaliser.protoRender(req, res, "admin", { title: "Admin Area" });
 });
 
+// Amend the database.
 router.get("/upload/:id", function (req, res, next) {
     let properties;
     let action = "/uploads/insert2/"+req.params.id;
@@ -28,7 +30,7 @@ router.get("/upload/:id", function (req, res, next) {
             title: "Add a New Service Time",
             formAction: action
         };
-        finaliser.protoRender(req, res, "upload2ServiceTime", properties);
+        scraper.scrapeUpload2ServiceTime(req, res, properties);
     } else {
         res.redirect("/");
     }

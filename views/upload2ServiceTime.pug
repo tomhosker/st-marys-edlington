@@ -24,4 +24,9 @@ block content
                 option(value="4") Thurday
                 option(value="5") Friday
                 option(value="6") Saturday
+        p
+            | Service location:
+            select(id="location", name="location")
+                for item in data.realWorldAddresses
+                    option(value=item.code) #{item.short_name}
         input(type="submit", value="Submit")
