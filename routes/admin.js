@@ -39,7 +39,7 @@ router.get("/add/:id", function (req, res, next) {
 
 // Remove records from the database.
 router.get("/remove/:id", function (req, res, next) {
-    const action = "/uploads/delete-from/"+req.params.id;
+    const action = "/uploads/deletefrom/"+req.params.id;
 
     if (req.params.id === "ServiceTime") {
         scraper.scrapeDeleteFromServiceTime(req, res, action);

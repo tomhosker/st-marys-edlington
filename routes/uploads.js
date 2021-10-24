@@ -18,7 +18,7 @@ router.post("/insert2/ServiceTime", function (req, res, next) {
 });
 
 // Execute the deletion of a service time.
-router.post("/delete-from/ServiceTime", function (req, res, next) {
+router.post("/deletefrom/ServiceTime", function (req, res, next) {
     uploader.deleteServiceTime(req, res);
 });
 
