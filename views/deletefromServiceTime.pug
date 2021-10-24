@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1=title
+
+    p Delete a record?
+    form(action=formAction, method="post")
+        p
+            | Service location:
+            select(id="serviceTimeID", name="serviceTimeID")
+                for summary in serviceSummaries
+                    option(value=summary.id) #{summary.description}
+        input(type="submit", value="Submit")

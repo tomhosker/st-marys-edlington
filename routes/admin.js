@@ -21,10 +21,10 @@ router.get("/", function (req, res, next) {
     finaliser.protoRender(req, res, "admin", { title: "Admin Area" });
 });
 
-// Amend the database.
-router.get("/upload/:id", function (req, res, next) {
+// Add records to the database.
+router.get("/add/:id", function (req, res, next) {
+    const action = "/uploads/insert2/"+req.params.id;
     let properties;
-    let action = "/uploads/insert2/"+req.params.id;
 
     if (req.params.id === "ServiceTime") {
         properties = {
@@ -32,6 +32,17 @@ router.get("/upload/:id", function (req, res, next) {
             formAction: action
         };
         scraper.scrapeUpload2ServiceTime(req, res, properties);
+    } else {
+        res.redirect("/");
+    }
+});
+
+// Remove records from the database.
+router.get("/remove/:id", function (req, res, next) {
+    const action = "/uploads/delete-from/"+req.params.id;
+
+    if (req.params.id === "ServiceTime") {
+        scraper.scrapeDeleteFromServiceTime(req, res, action);
     } else {
         res.redirect("/");
     }

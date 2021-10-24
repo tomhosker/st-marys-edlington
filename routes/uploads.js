@@ -14,7 +14,12 @@ const uploader = new Uploader();
 
 // Execute the addition of a new service time.
 router.post("/insert2/ServiceTime", function (req, res, next) {
-    uploader.insertNewServiceTime(req, res, "ServiceTime");
+    uploader.insertNewServiceTime(req, res);
+});
+
+// Execute the deletion of a service time.
+router.post("/delete-from/ServiceTime", function (req, res, next) {
+    uploader.deleteServiceTime(req, res);
 });
 
 module.exports = router;
