@@ -29,13 +29,11 @@ block content
     table.homepage
         tr
             th Service
-            th Weekday
             th Time
             th Location
         for service in serviceTimes
             tr
                 td=service.service_type
-                td=service.weekdayString
                 td=service.time
                 td=service.location_name
 
