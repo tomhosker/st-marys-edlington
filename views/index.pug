@@ -42,5 +42,8 @@ block content
         li #[a(href="/") Contact details and addresses]
         li #[a(href="/") Newsletters]
         li #[a(href="/") Useful external links]
-        if isAdmin
+
+    if isAdmin
+        h2 Hidden Area
+        ul
             li #[a(href="/admin") #[i Admin area]]
