@@ -32,6 +32,12 @@ router.get("/add/:id", function (req, res, next) {
             formAction: action
         };
         scraper.scrapeUpload2ServiceTime(req, res, properties);
+    } else if(req.params.id === "Newsletter") {
+        properties = {
+            title: "Add a New Newsletter",
+            formAction: action
+        };
+        finaliser.protoRender(req, res, "upload2Newsletter", properties);
     } else {
         res.redirect("/");
     }
@@ -43,6 +49,8 @@ router.get("/remove/:id", function (req, res, next) {
 
     if (req.params.id === "ServiceTime") {
         scraper.scrapeDeleteFromServiceTime(req, res, action);
+    } else if(req.params.id === "Newsletter") {
+        scraper.scrapeDeleteFromNewsletter(req, res, action);
     } else {
         res.redirect("/");
     }

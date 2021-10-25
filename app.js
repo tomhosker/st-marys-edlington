@@ -59,6 +59,7 @@ const profileRouter = require("./routes/profile");
 const asIsRouter = require("./routes/asis");
 const uploadsRouter = require("./routes/uploads");
 const adminRouter = require("./routes/admin");
+const newslettersRouter = require("./routes/newsletters");
 
 // Error codes.
 const notFound = 404;

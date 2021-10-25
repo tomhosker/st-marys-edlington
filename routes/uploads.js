@@ -22,4 +22,14 @@ router.post("/deletefrom/ServiceTime", function (req, res, next) {
     uploader.deleteServiceTime(req, res);
 });
 
+// Execute the addition of a new newsletter.
+router.post("/insert2/Newsletter", function (req, res, next) {
+    uploader.insertNewNewsletter(req, res);
+});
+
+// Execute the deletion of a newsletter.
+router.post("/deletefrom/Newsletter", function (req, res, next) {
+    uploader.deleteNewsletter(req, res);
+});
+
 module.exports = router;

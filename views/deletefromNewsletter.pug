@@ -6,8 +6,8 @@ block content
     p Delete a record?
     form(action=formAction, method="post")
         p
-            | Select service time:
-            select(id="serviceTimeID", name="serviceTimeID")
-                for summary in serviceSummaries
+            | Select newsletter:
+            select(id="newsletterID", name="newsletterID")
+                for summary in newsletterSummaries
                     option(value=summary.id) #{summary.description}
         input(type="submit", value="Submit")
