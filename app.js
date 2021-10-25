@@ -103,6 +103,7 @@ app.use(favicon(__dirname + "/public/favicon.ico"));
 // ROUTES.
 app.use("/", indexRouter);
 app.use("/logmein", loginRouter);
+app.use("/newsletters", newslettersRouter);
 app.use(
     "/profile",
     require("connect-ensure-login").ensureLoggedIn(),
