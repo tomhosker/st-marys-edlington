@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="101.17801"
+   height="76.594948"
+   id="svg14"
+   sodipodi:docname="St_marys_school_crest.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1849"
+     inkscape:window-height="1172"
+     id="namedview16"
+     showgrid="false"
+     inkscape:zoom="2.3869437"
+     inkscape:cx="114.00796"
+     inkscape:cy="91.455384"
+     inkscape:window-x="71"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g3785" />
+  <defs
+     id="defs8">
+    <linearGradient
+       x1="0"
+       y1="0"
+       x2="0.51089501"
+       y2="0"
+       id="linearGradient3795"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(41.182312,41.182312,41.182312,-41.182312,105.57724,762.07488)"
+       spreadMethod="pad">
+      <stop
+         id="stop3797"
+         style="stop-color:#9e814b;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop3799"
+         style="stop-color:#d7b66f;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+  </defs>
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>St Mary's School, Cambridge coat of arms</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="matrix(5.5806686,0,0,-5.5806686,-650.93404,4387.969)"
+     id="g3785">
+    <path
+       d="m 116.64087,780.50716 c 0,0 0.245,-0.464 1.998,-2.186 v 0 c 1.751,-1.722 2.325,-3.983 1.161,-3.937 v 0 c -0.672,0.028 -0.81,1.012 0,1.149 v 0 c -0.467,1.226 -2.879,0.628 -2.355,-1.066 v 0 c 0.672,-2.173 4.145,-2.574 4.799,0.288 v 0 c 0.652,2.862 -2.771,4.92 -1.422,8.408 v 0 c 0.903,2.335 4.226,1.044 4.226,-1.727 v 0 c 0,-0.446 -0.002,-0.818 -0.004,-1.165 v 0 c -0.426,-10e-4 -1.239,-0.039 -1.671,0.898 v 0 c -0.612,-0.427 -0.294,-0.873 -0.153,-1.109 v 0 c -0.579,0.114 -0.918,-0.04 -1.091,-0.521 v 0 h 0.149 0.329 c 0,-0.001 0.805,-0.001 0.806,-0.001 v 0 h -0.806 -0.329 -0.149 c 0.173,-0.482 0.512,-0.635 1.091,-0.521 v 0 c -0.141,-0.238 -0.459,-0.683 0.153,-1.108 v 0 c 0.425,0.921 1.22,0.897 1.652,0.896 v 0 c -0.017,-0.914 -0.036,-1.66 -0.036,-2.976 v 0 c 0,-2.296 -1.844,-2.701 -1.844,-2.701 v 0 c 1.039,-0.984 2.678,-0.579 2.979,0.298 v 0 c 0.3,-0.851 2.025,-1.2 2.651,-0.298 v 0 c -0.984,0.549 -1.913,1.091 -1.913,2.641 v 0 3.042 c 4.647,0 2.82,-3.243 3.643,-4.891 v 0 c 1.084,-2.176 4.381,-1.192 4.263,0.519 v 0 c -0.121,1.732 -1.789,1.668 -2.177,0.848 v 0 c 0.537,0 0.72,-0.738 0.269,-1.012 v 0 c -0.452,-0.272 -1.379,0.541 -0.75,1.464 v 0 c 0.55,0.811 1.316,2.609 -0.859,3.459 v 0 c 6.945,3.369 -1.273,10.465 -5.127,5.164 v 0 c -1.362,1.334 -2.62,1.918 -3.774,1.918 v 0 c -2.33,10e-4 -4.234,-2.381 -5.709,-5.773 m 10.167,-0.235 c 0,4.145 2.928,5.211 4.322,3.269 v 0 c 0.632,-0.88 0.682,-3.28 -3.783,-3.28 v 0 c -0.173,0 -0.352,0.004 -0.539,0.011"
+       id="path3807"
+       style="fill:#d40000;fill-opacity:1;stroke:none"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+  </g>
+</svg>
