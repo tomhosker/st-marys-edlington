@@ -4,10 +4,14 @@ block content
     h1=title
 
     p Delete a record?
-    form(action=formAction, method="post")
-        p
-            | Select newsletter:
-            select(id="newsletterID", name="newsletterID")
-                for summary in newsletterSummaries
-                    option(value=summary.id) #{summary.description}
-        input(type="submit", value="Submit")
+
+    if newsletterSummaries.length == 0
+        p #[i Nothing to delete.]
+    else
+        form(action=formAction, method="post")
+            p
+                | Select newsletter:
+                select(id="newsletterID", name="newsletterID")
+                    for summary in newsletterSummaries
+                        option(value=summary.id) #{summary.description}
+            input(type="submit", value="Submit")
