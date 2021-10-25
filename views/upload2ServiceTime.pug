@@ -1,6 +1,18 @@
 extends layout
 
 block content
+    div.helpbox
+        h2 Help
+        p Fill in the form opposite and press ``Submit'' to add a new service time.
+        ol
+            li The #[i service type] refers to the sort of service to take place, e.g. `Mass'.
+            li Make sure the #[i service time] is set to AM or PM, as appropriate.
+            li If the service in question is to #[b repeat every week], specify a #[i service weekday].
+            ol
+                li If, on the other hand, the service in question is a #[b one-off], specify a #[i service date].
+            li If there is anything else about the service that potential attendees might need to know, put this in the #[i remarks] box.
+                li If not, feel free to leave this box blank.
+
     h1=title
 
     p Add a new record?
@@ -12,9 +24,6 @@ block content
             | Service time:
             input(type="time", name="time", required)
         p
-            | Service date:
-            input(type="date", name="date")
-        p
             | Service weekday:
             select(id="weekday", name="weekday")
                 option(value="-1") N/A
@@ -25,6 +34,9 @@ block content
                 option(value="4") Thurday
                 option(value="5") Friday
                 option(value="6") Saturday
+        p
+            | Service date:
+            input(type="date", name="date")
         p
             | Service location:
             select(id="location", name="location")
