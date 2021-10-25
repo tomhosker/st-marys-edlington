@@ -37,12 +37,11 @@ block content
                 td=service.time
                 td=service.location_name
 
-    if mostRecentNewsletter
-        p Most recent newsletter: #[b #[a(href=mostRecentNewsletter.link) Week Beginning #{mostRecentNewsletter.weekBeginning}]]
-
     h2 Useful Pages
     ul
-        li #[a(href="/newsletters") Newsletters]
+        if mostRecentNewsletter
+            li Most recent #[b newsletter]: #[a(href=mostRecentNewsletter.link) Week beginning #{mostRecentNewsletter.weekBeginning}]
+            li #[a(href="/newsletters") Older newsletters]
         li #[a(href="/") Useful external links]
 
     if isAdmin
