@@ -1,7 +1,6 @@
 extends layout
 
 block content
-    h1=title
     div.helpbox
         h2 Help
         ol
@@ -14,6 +13,8 @@ block content
                 li You are free to use any hosting service you like. If you're unsure, #[a(href="https://drive.google.com") Google Drive], #[a(href="https://www.dropbox.com") Dropbox] and #[a(href="https://mega.io/") Mega] are all great options.
                 li Once you've uploaded the file, generate a link, and then paste it into the form opposite.
             li If you get stuck with the above, feel free to contact #[a(href="/webmaster") the webmaster] for help.
+
+    h1=title
 
     p Add a new record?
     form(action=formAction, method="post")
