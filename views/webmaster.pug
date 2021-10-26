@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    h1 #{title}
+
+    table
+        tr
+            th Category
+            th Value
+        tr
+            td Full name
+            td #{fullName}
+        tr
+            td Known as
+            td #{shortName}
+        tr
+            td Email
+            td #{email}
+        if landline
+            tr
+                td Landline
+                td #{landline}
+        if mobile
+            tr
+                td Mobile
+                td #{mobile}

@@ -60,6 +60,7 @@ const asIsRouter = require("./routes/asis");
 const uploadsRouter = require("./routes/uploads");
 const adminRouter = require("./routes/admin");
 const newslettersRouter = require("./routes/newsletters");
+const webmasterRouter = require("./routes/webmaster");
 
 // Error codes.
 const notFound = 404;
@@ -104,13 +105,14 @@ app.use(favicon(__dirname + "/public/favicon.ico"));
 app.use("/", indexRouter);
 app.use("/logmein", loginRouter);
 app.use("/newsletters", newslettersRouter);
+app.use("/stills", stillsRouter);
+app.use("/webmaster", webmasterRouter);
 app.use(
     "/profile",
     require("connect-ensure-login").ensureLoggedIn(),
     profileRouter
 );
 app.use("/asis", require("connect-ensure-login").ensureLoggedIn(), asIsRouter);
-app.use("/stills", stillsRouter);
 app.use(
     "/uploads",
     require("connect-ensure-login").ensureLoggedIn(),
