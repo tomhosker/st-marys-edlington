@@ -31,7 +31,7 @@ body {
 
 .header {
     width: 100%;
-    /* height: 200px; */
+    height: auto;
     background-color: white;
     background-image: url("banner.png");
     background-size: 50%;
