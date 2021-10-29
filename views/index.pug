@@ -45,8 +45,11 @@ block content
             img(src="/images/st_marys_edlington_nave.jpg", width="200")
         div.mySlides
             img(src="/images/st_marys_edlington_outside1.jpg", width="200")
-        button.prev(onclick="plusSlides(-1)") ❮
-        button.prev(onclick="plusSlides(1)") ❯
+
+        div.prev(onclick="plusSlides(-1)") ❮
+        div.prev(onclick="plusSlides(1)") ❯
+        //<a class="prev" onclick="plusSlides(-1)">❮</a>
+        //<a class="next" onclick="plusSlides(1)">❯</a>
 
     if mostRecentNewsletter
         h2 Newsletters
