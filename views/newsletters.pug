@@ -13,5 +13,6 @@ block content
                 th Link
             for newsletter in newsletters
                 tr
+                    td #{newsletter.id}
                     td #{newsletter.weekBeginning}
                     td [#[a(href=newsletter.link) here]]
