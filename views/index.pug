@@ -40,18 +40,13 @@ block content
     // /images/st_marys_edlington_nave.jpg
     // /images/st_marys_edlington_outside1.jpg
 
-    <div class="container">
-        <div class="mySlides">
-            <img src="/images/st_marys_edlington_nave.jpg" width="200">
-        </div>
-
-        <div class="mySlides">
-            <img src="/images/st_marys_edlington_outside1.jpg" width="200">
-        </div>
-
-        <a class="prev" onclick="plusSlides(-1)">❮</a>
-        <a class="next" onclick="plusSlides(1)">❯</a>
-    </div>
+    div.container
+        div.mySlides
+            img(src="/images/st_marys_edlington_nave.jpg", width="200")
+        div.mySlides
+            img(src="/images/st_marys_edlington_outside1.jpg", width="200")
+        #[a.prev(onclick="plusSlides(-1)")❮]
+        #[a.prev(onclick="plusSlides(1)")❯]
 
     if mostRecentNewsletter
         h2 Newsletters
