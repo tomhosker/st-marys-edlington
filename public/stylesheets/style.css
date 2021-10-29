@@ -77,6 +77,7 @@ img {
 /* Position the image container (needed to position the left and right arrows) */
 .container {
     position: relative;
+    width: 200px;
 }
 
 /* Hide the images by default */
@@ -125,68 +126,6 @@ img {
     padding: 8px 12px;
     position: absolute;
     top: 0;
-}
-
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* Six columns side by side */
-.column {
-    float: left;
-    width: 16.66%;
-}
-
-/* Add a transparency effect for thumnbail images */
-.demo {
-    opacity: 0.6;
-}
-
-.active,
-.demo:hover {
-    opacity: 1;
-}
-
-span.zero-colour {
-    color: rgb(0, 255, 0);
-}
-
-.one-colour {
-    color: rgb(25, 230, 0);
-}
-
-.two-colour {
-    color: rgb(50, 205, 0);
-}
-
-.three-colour {
-    color: rgb(75, 180, 0);
-}
-
-.four-colour {
-    color: rgb(100, 155, 0);
-}
-
-.five-colour {
-    color: rgb(125, 130, 0);
-}
-
-.six-colour {
-    color: rgb(150, 105, 0);
-}
-
-.seven-colour {
-    color: rgb(205, 50, 0);
-}
-
-.eight-colour {
-    color: rgb(230, 25, 0);
-}
-
-.nine-colour {
-    color: rgb(255, 0, 0);
 }
 
 table {
