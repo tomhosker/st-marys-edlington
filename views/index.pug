@@ -40,14 +40,16 @@ block content
     // /images/st_marys_edlington_nave.jpg
     // /images/st_marys_edlington_outside1.jpg
 
-    div.container
-        div.mySlides
-            img(src="/images/st_marys_edlington_nave.jpg", width="200")
-        div.mySlides
-            img(src="/images/st_marys_edlington_outside1.jpg", width="200")
-        = "\n"
+    <div class="container">
+        <div class="mySlides">
+            <img src="/images/st_marys_edlington_nave.jpg" style="width:100%">
+        </div>
+        <div class="mySlides">
+            <img src="/images/st_marys_edlington_outside1.jpg" style="width:100%">
+        </div>
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
 
     if mostRecentNewsletter
         h2 Newsletters
