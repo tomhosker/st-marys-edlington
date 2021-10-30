@@ -2,6 +2,32 @@
 This is a front end script which defines a class modelling a slideshow.
 */
 
+// Constants.
+const DEFAULT_TIMEOUT = 5000;
+
+// The class in question.
+class Slideshow {
+    constructor() {
+        this.slides = document.getElementsByClassName("mySlides");
+        this.slideIndex = 0;
+        this.timeout = DEFAULT_TIMEOUT;
+    }
+
+    // Go to the next slide.
+    increment() {
+        for (let i = 0; i < this.slides.length; i++) {
+            this.slides[i].style.display = "none";
+        }
+        if (this.slideIndex >= this.slides.length) this.slideIndex = 0;
+        this.slides[this.slideIndex].style.display = "block";  
+        setTimeout(this.incrementSlides, this.timeout);
+        this.slideIndex++;
+    }
+}
+
+/*
+OLD CODE
+
 var slideIndex = 0;
 showSlides();
 
@@ -16,3 +42,4 @@ function showSlides() {
     slides[slideIndex-1].style.display = "block";  
     setTimeout(showSlides, 5000); // Change image every 5 seconds
 }
+*/
