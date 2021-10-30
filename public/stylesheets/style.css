@@ -74,40 +74,22 @@ div.helpbox {
     border-radius: 10px;
 }
 
-img {
-    vertical-align: middle;
-}
-
-/* Slideshow container */
+/* Slideshow stuff. */
 .slideshow-container-homepage {
     max-width: 65%;
     padding: 20px;
 }
-
-/* The dots/bullets/indicators */
-.dot {
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
-
-.active {
-    background-color: #717171;
-}
-
-/* Fading animation */
 .fade {
     animation-name: fade;
     animation-duration: 1.5s;
 }
-
 @keyframes fade {
     from {opacity: .4} 
     to {opacity: 1}
+}
+
+img {
+    vertical-align: middle;
 }
 
 table {
