@@ -15,14 +15,13 @@ class Slideshow {
 
     // Go to the next slide.
     increment() {
-console.log(this.slides);
         for (let i = 0; i < this.slides.length; i++) {
             this.slides[i].style.display = "none";
         }
         if (this.slideIndex >= this.slides.length) this.slideIndex = 0;
         this.slides[this.slideIndex].style.display = "block";  
-        setTimeout(this.increment, this.timeout);
         this.slideIndex++;
+        setTimeout(this.increment, this.timeout);
     }
 }
 
