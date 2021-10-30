@@ -26,7 +26,7 @@ class Slideshow {
 // Helper function.
 function runTheSlideshow(slideshow) {
     slideshow.nextSlide();
-    setTimeout(runTheSlideShow, DEFAULT_TIMEOUT, slideshow);
+    setTimeout(runTheSlideshow, DEFAULT_TIMEOUT, slideshow);
 }
 
 // Let's get cracking...
