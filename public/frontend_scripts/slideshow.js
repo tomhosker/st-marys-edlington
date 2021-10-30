@@ -5,10 +5,6 @@ This is a front end script which defines a class modelling a slideshow.
 // Constants.
 const DEFAULT_TIMEOUT = 5000;
 
-// Let's get cracking...
-const theSlideshow = new Slideshow();
-theSlideshow.increment();
-
 // The class in question.
 class Slideshow {
     constructor() {
@@ -29,6 +25,10 @@ class Slideshow {
 console.log("this.slideIndex = "+this.slideIndex);
     }
 }
+
+// Let's get cracking...
+const theSlideshow = new Slideshow();
+theSlideshow.increment();
 
 /*
 var slideIndex = 0;
