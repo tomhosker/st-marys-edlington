@@ -93,6 +93,10 @@ img {
     vertical-align: middle;
 }
 
+img.slideshow-homepage {
+    height: 200px;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
