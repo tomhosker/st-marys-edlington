@@ -42,20 +42,15 @@ block content
 
     <div class="slideshow-container">
         <div class="mySlides fade">
-            <div class="numbertext">1 / 2</div>
             <img src="/images/st_marys_edlington_nave.jpg" style="width:100%">
-            <div class="text">Caption Text</div>
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">2 / 2</div>
             <img src="/images/st_marys_edlington_outside1.jpg" style="width:100%">
-            <div class="text">Caption Two</div>
         </div>
     </div>
     <br>
     <div style="text-align:center">
-        <span class="dot"></span>
         <span class="dot"></span>
         <span class="dot"></span>
     </div>
@@ -93,5 +88,5 @@ block content
             }
             slides[slideIndex-1].style.display = "block";  
             dots[slideIndex-1].className += " active";
-            setTimeout(showSlides, 2000); // Change image every 2 seconds
+            setTimeout(showSlides, 5000); // Change image every 2 seconds
         }
