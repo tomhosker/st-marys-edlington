@@ -10,24 +10,28 @@ class Slideshow {
     constructor() {
         this.slides = document.getElementsByClassName("mySlides");
         this.slideIndex = 0;
-        this.timeout = DEFAULT_TIMEOUT;
     }
 
     // Go to the next slide.
-    increment() {
+    nextSlide() {
         for (let i = 0; i < this.slides.length; i++) {
             this.slides[i].style.display = "none";
         }
         if (this.slideIndex >= this.slides.length) this.slideIndex = 0;
         this.slides[this.slideIndex].style.display = "block";  
         this.slideIndex++;
-        setTimeout(this.increment, this.timeout);
     }
+}
+
+// Helper function.
+function runTheSlideshow(slideshow) {
+    slideshow.nextSlide();
+    setTimeout(runTheSlideShow, DEFAULT_TIMEOUT, slideshow);
 }
 
 // Let's get cracking...
 const theSlideshow = new Slideshow();
-theSlideshow.increment();
+runTheSlideShow(theSlideshow);
 
 /*
 var slideIndex = 0;
