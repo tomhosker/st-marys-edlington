@@ -48,11 +48,10 @@ block content
         <div class="mySlides fade">
             <img src="/images/st_marys_edlington_outside1.jpg" style="width:100%">
         </div>
-    </div>
-    <br>
-    <div style="text-align:center">
-        <span class="dot"></span>
-        <span class="dot"></span>
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
     </div>
 
     if mostRecentNewsletter
@@ -88,5 +87,5 @@ block content
             }
             slides[slideIndex-1].style.display = "block";  
             dots[slideIndex-1].className += " active";
-            setTimeout(showSlides, 5000); // Change image every 2 seconds
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
         }
