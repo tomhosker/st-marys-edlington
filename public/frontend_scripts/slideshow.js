@@ -31,7 +31,7 @@ function runTheSlideshow(slideshow) {
 
 // Let's get cracking...
 const theSlideshow = new Slideshow();
-runTheSlideShow(theSlideshow);
+runTheSlideshow(theSlideshow);
 
 /*
 var slideIndex = 0;
