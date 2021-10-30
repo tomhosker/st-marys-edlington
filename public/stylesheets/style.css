@@ -79,10 +79,10 @@ img {
 }
 
 /* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
+.slideshow-container-homepage {
+    max-width: 65%;
+    position: relative;
+    margin: auto;
 }
 
 /* The dots/bullets/indicators */
