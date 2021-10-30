@@ -20,7 +20,7 @@ class Slideshow {
         }
         if (this.slideIndex >= this.slides.length) this.slideIndex = 0;
         this.slides[this.slideIndex].style.display = "block";  
-        setTimeout(this.incrementSlides, this.timeout);
+        setTimeout(this.increment, this.timeout);
         this.slideIndex++;
 console.log("this.slideIndex = "+this.slideIndex);
     }
