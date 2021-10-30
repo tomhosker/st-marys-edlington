@@ -26,6 +26,7 @@ class Slideshow {
         this.slides[this.slideIndex].style.display = "block";  
         setTimeout(this.incrementSlides, this.timeout);
         this.slideIndex++;
+console.log("this.slideIndex = "+this.slideIndex);
     }
 }
 
