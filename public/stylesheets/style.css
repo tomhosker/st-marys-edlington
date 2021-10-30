@@ -77,7 +77,8 @@ div.helpbox {
 /* Slideshow stuff. */
 .slideshow-container-homepage {
     max-width: 65%;
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 .fade {
     animation-name: fade;
@@ -101,15 +102,14 @@ table {
     width: 65%;
 }
 
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-
-td,
-th {
+td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
 }
 
 form {
