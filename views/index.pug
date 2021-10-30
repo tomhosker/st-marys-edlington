@@ -40,14 +40,11 @@ block content
     // /images/st_marys_edlington_nave.jpg
     // /images/st_marys_edlington_outside1.jpg
 
-    <div class="slideshow-container-homepage">
-        <div class="mySlides fade">
-            <img src="/images/st_marys_edlington_nave.jpg">
-        </div>
-        <div class="mySlides fade">
-            <img src="/images/st_marys_edlington_outside1.jpg">
-        </div>
-    </div>
+    .slideshow-container-homepage
+        .mySlides.fade
+            img(src='/images/st_marys_edlington_nave.jpg')
+        .mySlides.fade
+            img(src='/images/st_marys_edlington_outside1.jpg')
 
     if mostRecentNewsletter
         h2 Newsletters
