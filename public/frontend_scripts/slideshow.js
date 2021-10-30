@@ -15,6 +15,7 @@ class Slideshow {
 
     // Go to the next slide.
     increment() {
+console.log(this.slides);
         for (let i = 0; i < this.slides.length; i++) {
             this.slides[i].style.display = "none";
         }
@@ -22,7 +23,6 @@ class Slideshow {
         this.slides[this.slideIndex].style.display = "block";  
         setTimeout(this.increment, this.timeout);
         this.slideIndex++;
-console.log("this.slideIndex = "+this.slideIndex);
     }
 }
 
