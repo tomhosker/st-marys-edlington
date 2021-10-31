@@ -3,7 +3,7 @@ This code handles the way in which user profiles are generated and retrieved.
 */
 
 // Constants.
-const records = [{ id: 1, username: "admin", password: "guest" }];
+const records = [{ id: 1, username: "admin", hashedPassword: "84983c60f7daadc1cb8698621f802c0d9f9a3c3c295c810748fb048115c186ec" }];
 
 exports.findById = function (id, cb) {
     process.nextTick(function () {

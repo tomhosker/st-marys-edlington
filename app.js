@@ -22,7 +22,7 @@ passport.use(
             if (!user) {
                 return cb(null, false);
             }
-            if (user.password != password) {
+            if (user.hashedPassword != signingin.getHash(password)) {
                 return cb(null, false);
             }
             return cb(null, user);
