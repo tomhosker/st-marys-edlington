@@ -29,6 +29,8 @@ router.get("/:id", function (req, res, next) {
 function getTitle(code, customTitles) {
     let result;
 
+console.log(code);
+console.log(customTitles);
 console.log(code in Object.keys(customTitles));
 
     if (code in Object.keys(customTitles)) {
