@@ -3,6 +3,7 @@
  *************************/
 
 // Login imports.
+const crypto = require("crypto");
 const passport = require("passport");
 const Strategy = require("passport-local").Strategy;
 const signingin = require("./signingin");
@@ -11,6 +12,10 @@ const signingin = require("./signingin");
 passport.use(
     new Strategy(function (username, password, cb) {
         signingin.users.findByUsername(username, function (err, user) {
+            console.log(username);
+            console.log(password);
+            console.log(signingin.getHash(password));
+
             if (err) {
                 return cb(err);
             }
@@ -24,7 +29,6 @@ passport.use(
         });
     })
 );
-
 // Configure Passport authenticated session persistence.
 passport.serializeUser(function (user, cb) {
     cb(null, user.id);

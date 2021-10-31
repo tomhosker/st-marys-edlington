@@ -1,3 +1,8 @@
+/*
+This code handles the way in which user profiles are generated and retrieved.
+*/
+
+// Constants.
 const records = [{ id: 1, username: "admin", password: "guest" }];
 
 exports.findById = function (id, cb) {
