@@ -57,6 +57,8 @@ function strategyFunc(username, password, cb) {
 }
 
 // Exports.
+exports.deserializer = deserializer;
 exports.getHash = getHash;
+exports.serializer = serializer;
 exports.strategyFunc = strategyFunc;
 exports.users = users;
