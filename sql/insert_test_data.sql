@@ -72,13 +72,13 @@ INSERT INTO ServiceTime (
 ) VALUES (
     1,
     6,
+    null,
+    null,
+    null,
     18,
     0,
     'st-marys-edlington',
     'Mass',
-    null,
-    null,
-    null,
     null
 );
 
@@ -94,14 +94,6 @@ INSERT INTO ParishRole (
     'computer-guy',
     'Computer Guy',
     'tom-hosker'
-);
-
-CREATE TABLE Newsletter (
-    id SERIAL PRIMARY KEY,
-    week_beginning_day INT NOT NULL DEFAULT 1, -- Day of the month
-    week_beginning_month INT NOT NULL DEFAULT 0, -- 0 = January, 11 = December.
-    week_beginning_year INT NOT NULL DEFAULT 2000,
-    link VARCHAR(99) NOT NULL DEFAULT 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
 );
 
 INSERT INTO Newsletter (
