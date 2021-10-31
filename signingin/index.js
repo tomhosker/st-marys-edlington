@@ -15,7 +15,7 @@ const HASH_OUTPUT = "hex";
 
 // Return a hash of the input string.
 function getHash(inputString) {
-    let hash = createHash(HASH_ALGORITHM);
+    let hash = crypto.createHash(HASH_ALGORITHM);
     let result;
 
     hash.update(inputString);
