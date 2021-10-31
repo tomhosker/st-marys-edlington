@@ -25,23 +25,19 @@ function getHash(inputString) {
 }
 
 // Return an authentication strategy.
-function makeStrategy() {
-    const result = new Strategy(function (username, password, cb) {
-        signingin.users.findByUsername(username, function (err, user) {
-            if (err) {
-                return cb(err);
-            }
-            if (!user) {
-                return cb(null, false);
-            }
-            if (user.hashedPassword != getHash(password)) {
-                return cb(null, false);
-            }
-            return cb(null, user);
-        });
+function strategyFunc(username, password, cb) {
+    signingin.users.findByUsername(username, function (err, user) {
+        if (err) {
+            return cb(err);
+        }
+        if (!user) {
+            return cb(null, false);
+        }
+        if (user.hashedPassword != getHash(password)) {
+            return cb(null, false);
+        }
+        return cb(null, user);
     });
-
-    return result;
 }
 
 // Exports.
