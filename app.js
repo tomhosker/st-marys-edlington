@@ -8,6 +8,7 @@ const Strategy = require("passport-local").Strategy;
 const signingin = require("./signingin");
 
 // Configure the local strategy for use by Passport.
+console.log("Herro!");
 passport.use(signingin.makeStrategy());
 // Configure Passport authenticated session persistence.
 passport.serializeUser(function (user, cb) {
