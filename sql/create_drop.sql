@@ -1,8 +1,5 @@
--- Run me on the database for the HGMJ app using:
---   heroku pg:psql --app hgmj < create_drop.sql
-
--- Remember that PostgreSQL will changes the names of columns, tables, etc
--- to all lower case unless quotation marks are used.
+-- Run me using:
+--   heroku pg:psql --app [APP_CODE] < create_drop.sql
 
 DROP TABLE IF EXISTS Newsletter;
 DROP TABLE IF EXISTS ParishRole;
