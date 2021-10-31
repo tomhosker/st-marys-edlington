@@ -11,17 +11,8 @@ const signingin = require("./signingin");
 // Configure the local strategy for use by Passport.
 passport.use(new Strategy(signingin.strategyFunc));
 // Configure Passport authenticated session persistence.
-passport.serializeUser(function (user, cb) {
-    cb(null, user.id);
-});
-passport.deserializeUser(function (id, cb) {
-    signingin.users.findById(id, function (err, user) {
-        if (err) {
-            return cb(err);
-        }
-        cb(null, user);
-    });
-});
+passport.serializeUser(signingin.serializer);
+passport.deserializeUser(signingin.deserializer);
 
 /***************************
  ** SET UP EVERYTHING ELSE **
