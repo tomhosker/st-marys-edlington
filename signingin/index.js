@@ -5,6 +5,9 @@ This code allows the site to verify usernames and passwords.
 // Standard imports.
 const crypto = require("crypto");
 
+// Local imports.
+const users = require("./users");
+
 // Local constants.
 const HASH_ALGORITHM = "sha256";
 const HASH_OUTPUT = "hex";
@@ -43,4 +46,4 @@ function strategyFunc(username, password, cb) {
 // Exports.
 exports.getHash = getHash;
 exports.strategyFunc = strategyFunc;
-exports.users = require("./users");
+exports.users = users;
