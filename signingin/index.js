@@ -29,7 +29,7 @@ function getHash(inputString) {
 
 // Return an authentication strategy.
 function strategyFunc(username, password, cb) {
-    signingin.users.findByUsername(username, function (err, user) {
+    users.findByUsername(username, function (err, user) {
         if (err) {
             return cb(err);
         }
