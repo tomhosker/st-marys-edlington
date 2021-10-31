@@ -29,15 +29,8 @@ router.get("/:id", function (req, res, next) {
 function getTitle(code, customTitles) {
     let result;
 
-console.log(code);
-console.log(Object.keys(customTitles));
-console.log(code in Object.keys(customTitles));
-
-    if (code in Object.keys(customTitles)) {
-        result = customTitles[code];
-    } else {
-        result = code.charAt(0).toUpperCase() + code.slice(1);
-    }
+    if (customTitles.hasOwnProperty(code)) result = customTitles[code];
+    else result = code.charAt(0).toUpperCase() + code.slice(1);
 
     return result;
 }
