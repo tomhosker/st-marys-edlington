@@ -3,32 +3,12 @@
  *************************/
 
 // Login imports.
-const crypto = require("crypto");
 const passport = require("passport");
 const Strategy = require("passport-local").Strategy;
 const signingin = require("./signingin");
 
 // Configure the local strategy for use by Passport.
-passport.use(
-    new Strategy(function (username, password, cb) {
-        signingin.users.findByUsername(username, function (err, user) {
-            console.log(username);
-            console.log(password);
-            console.log(signingin.getHash(password));
-
-            if (err) {
-                return cb(err);
-            }
-            if (!user) {
-                return cb(null, false);
-            }
-            if (user.hashedPassword != signingin.getHash(password)) {
-                return cb(null, false);
-            }
-            return cb(null, user);
-        });
-    })
-);
+passport.use(signingin.makeStrategy());
 // Configure Passport authenticated session persistence.
 passport.serializeUser(function (user, cb) {
     cb(null, user.id);
