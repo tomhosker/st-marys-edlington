@@ -9,9 +9,9 @@ const crypto = require("crypto");
 const HASH_ALGORITHM = "sha256";
 const HASH_OUTPUT = "hex";
 
-/**************
-** FUNCTIONS **
-**************/
+/***************
+ ** FUNCTIONS **
+ **************/
 
 // Return a hash of the input string.
 function getHash(inputString) {
@@ -42,4 +42,5 @@ function strategyFunc(username, password, cb) {
 
 // Exports.
 exports.getHash = getHash;
+exports.strategyFunc = strategyFunc;
 exports.users = require("./users");
