@@ -30,7 +30,7 @@ function getTitle(code, customTitles) {
     let result;
 
 console.log(code);
-console.log(customTitles);
+console.log(Object.keys(customTitles));
 console.log(code in Object.keys(customTitles));
 
     if (code in Object.keys(customTitles)) {
