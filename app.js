@@ -6,7 +6,8 @@
 const crypto = require("crypto");
 const passport = require("passport");
 const Strategy = require("passport-local").Strategy;
-const signingin = require("./signingin");
+// Login local imports.
+const signingin = require("./lib/signingin");
 
 // Configure the local strategy for use by Passport.
 passport.use(new Strategy(signingin.strategyFunc));
@@ -14,7 +15,7 @@ passport.use(new Strategy(signingin.strategyFunc));
 passport.serializeUser(signingin.serializer);
 passport.deserializeUser(signingin.deserializer);
 
-/***************************
+/****************************
  ** SET UP EVERYTHING ELSE **
  ***************************/
 
