@@ -1,44 +1,21 @@
-/*************************
+/**************************
  ** SET UP LOG IN SYSTEM **
  *************************/
 
 // Login imports.
+const crypto = require("crypto");
 const passport = require("passport");
 const Strategy = require("passport-local").Strategy;
-const signingin = require("./signingin");
+// Login local imports.
+const signingin = require("./lib/signingin");
 
 // Configure the local strategy for use by Passport.
-passport.use(
-    new Strategy(function (username, password, cb) {
-        signingin.users.findByUsername(username, function (err, user) {
-            if (err) {
-                return cb(err);
-            }
-            if (!user) {
-                return cb(null, false);
-            }
-            if (user.password != password) {
-                return cb(null, false);
-            }
-            return cb(null, user);
-        });
-    })
-);
-
+passport.use(new Strategy(signingin.strategyFunc));
 // Configure Passport authenticated session persistence.
-passport.serializeUser(function (user, cb) {
-    cb(null, user.id);
-});
-passport.deserializeUser(function (id, cb) {
-    signingin.users.findById(id, function (err, user) {
-        if (err) {
-            return cb(err);
-        }
-        cb(null, user);
-    });
-});
+passport.serializeUser(signingin.serializer);
+passport.deserializeUser(signingin.deserializer);
 
-/***************************
+/****************************
  ** SET UP EVERYTHING ELSE **
  ***************************/
 
