@@ -19,6 +19,7 @@ const finaliser = new Finaliser();
 
 // GET home page.
 router.get("/:id", function (req, res, next) {
+console.log("Mr Dudrey!");
     const code = req.params.id;
     const title = getTitle(code, CUSTOM_TITLES);
 
@@ -29,7 +30,6 @@ router.get("/:id", function (req, res, next) {
 function getTitle(code, customTitles) {
     let result;
 
-console.log("Herro!");
 console.log(Object.keys(customTitles));
 
     if (code in Object.keys(customTitles)) {
