@@ -3,6 +3,16 @@
 -- Run me using:
 --   heroku pg:psql --app [APP_CODE] < create_drop.sql
 
+INSERT INTO UserLoginDetails (
+    id,
+    username,
+    hashed_password
+) VALUES (
+    1,
+    'admin',
+    '84983c60f7daadc1cb8698621f802c0d9f9a3c3c295c810748fb048115c186ec' -- Hash of "guest".
+);
+
 INSERT INTO RealWorldAddress (
     code,
     short_name,

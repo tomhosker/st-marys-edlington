@@ -6,6 +6,13 @@ DROP TABLE IF EXISTS ParishRole;
 DROP TABLE IF EXISTS ServiceTime;
 DROP TABLE IF EXISTS Contact;
 DROP TABLE IF EXISTS RealWorldAddress;
+DROP TABLE IF EXISTS UserLoginDetails;
+
+CREATE TABLE UserLoginDetails (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(99) UNIQUE,
+    hashed_password VARCHAR(99) NOT NULL
+);
 
 CREATE TABLE RealWorldAddress (
     code VARCHAR(99) PRIMARY KEY,
