@@ -37,6 +37,16 @@ block content
                 td=service.time
                 td=service.location_name
 
+    div.slideshow-container-homepage
+        div.mySlides.fade
+            img.slideshow-homepage(src="/images/st_marys_edlington_nave.jpg")
+        div.mySlides.fade
+            img.slideshow-homepage(src="/images/st_marys_edlington_font.jpg")
+        div.mySlides.fade
+            img.slideshow-homepage(src="/images/st_marys_edlington_outside1.jpg")
+        div.mySlides.fade
+            img.slideshow-homepage(src="/images/st_marys_edlington_outside2.jpg")
+
     if mostRecentNewsletter
         h2 Newsletters
         ul
@@ -45,9 +55,11 @@ block content
 
     h2 Useful Pages
     ul
-        li #[a(href="/") Useful external links]
+        li #[a(href="/stills/externallinks") Useful external links]
 
     if isAdmin
         h2 Hidden Area
         ul
             li #[a(href="/admin") Admin area]
+
+    script(type="text/javascript", src="/frontend_scripts/slideshow.js")
