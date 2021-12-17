@@ -39,30 +39,35 @@ class LocalExtractor:
         result = \
             os.path.join(
                 self.printout_dirname,
-                table_name+self.prinout_extension
+                table_name+self.printout_extension
             )
         return result
 
-    def extract_table_to_printout(self, table_name):
+    def extract_to_printout(self, table_name):
         """ Extract a given table to a text file. """
+        path_to_printout = self.make_path_to_printout(table_name)
+        psql = "\copy "+table_name+" to '"+path_to_printout+"' csv header"
         commands = [
             "heroku",
             "pg:psql",
             "--app",
             self.app_name,
-            "--command=\"SELECT * FROM "+table_name+";\""
+            "--command="+psql
         ]
-        path_to_printout = self.make_path_to_printout(table_name)
-        subprocess.run(commands, stdout=path_to_printout, check=True)
+        if not os.path.isdir(self.printout_dirname):
+            os.mkdir(self.printout_dirname)
+        subprocess.run(commands, check=True)
 
     def create_local_dump(self):
         """ Create the .db file and run the create-drop script. """
+        with open(self.path_to_create_drop, "r") as create_drop_file:
+            create_drop_script = create_drop_file.read()
         if os.path.exists(self.path_to_db):
             os.remove(self.path_to_db)
         subprocess.run(["touch", self.path_to_db], check=True)
         connection = sqlite3.connect(self.path_to_db)
         cursor = connection.cursor()
-        cursor.executescript(self.path_to_create_drop)
+        cursor.executescript(create_drop_script)
         connection.close()
 
     def add_from_printout(self, table_name):
@@ -70,7 +75,7 @@ class LocalExtractor:
         path_to_printout = self.make_path_to_printout(table_name)
         with open(path_to_printout, "r") as csv_file:
             data = csv.reader(csv_file, delimiter=",")
-            query = make_insert_query(table_name, len(data[0]))
+            query = make_insert_query(table_name, data)
             connection = sqlite3.connect(self.path_to_db)
             cursor = connection.cursor()
             for record in data:
@@ -91,12 +96,16 @@ class LocalExtractor:
 # HELPER FUNCTIONS #
 ####################
 
-def make_insert_query(table_name, number_of_columns):
+def make_insert_query(table_name, csv_reader_obj):
     """ Make an insert query for adding data from a CSV printout. """
-    result = "INSERT INTO "+table_name+"VALUES ("
+    number_of_columns = 0
+    for row in csv_reader_obj:
+        number_of_columns = len(row)
+        break
+    result = "INSERT INTO "+table_name+" VALUES ("
     question_marks_list = []
-    for _ in number_of_columns:
-        columns.append("?")
+    for _ in range(number_of_columns):
+        question_marks_list.append("?")
     question_marks_string = ", ".join(question_marks_list)
     result = result+question_marks_string+");"
     return result
@@ -108,8 +117,7 @@ def make_insert_query(table_name, number_of_columns):
 def run():
     """ Run this file. """
     extractor = LocalExtractor()
-    for table_name in DEFAULT_TABLE_NAMES:
-        extractor.extract()
+    extractor.extract(DEFAULT_TABLE_NAMES)
 
 if __name__ == "__main__":
     run()
