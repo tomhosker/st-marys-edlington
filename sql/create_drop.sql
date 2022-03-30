@@ -1,5 +1,5 @@
 -- Run me using:
---   heroku pg:psql --app [APP_CODE] < create_drop.sql
+--   heroku pg:psql --app [APP_CODE] < [PATH_TO_SCRIPT].sql
 
 DROP TABLE IF EXISTS Newsletter;
 DROP TABLE IF EXISTS ParishRole;

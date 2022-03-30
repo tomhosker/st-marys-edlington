@@ -1,7 +1,7 @@
 -- This code adds some test data to the database.
 
 -- Run me using:
---   heroku pg:psql --app [APP_CODE] < create_drop.sql
+--   heroku pg:psql --app [APP_CODE] < [PATH_TO_SCRIPT].sql
 
 INSERT INTO UserLoginDetails (
     id,

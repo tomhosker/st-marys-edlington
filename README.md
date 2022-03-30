@@ -1,3 +1,3 @@
-# St Mary's Edlington Church Website
+# St Mary's Roman Catholic Church Website
 
-The code in this repository describes the server for the St Mary's Edlington Church website.
+The code is this repository describes the server for the St Mary's Roman Catholic Church website.
