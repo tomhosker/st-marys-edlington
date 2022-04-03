@@ -58,6 +58,7 @@ body {
     background-image: url("banner.png");
     background-repeat: no-repeat;
     background-position: center;
+    background-size: auto 100%;
 }
 
 .mySlides {
