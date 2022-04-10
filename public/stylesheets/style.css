@@ -91,7 +91,7 @@ div.helpbox {
 }
 
 hr.tabs {
-    color: red
+    color: red;
 }
 
 img {
@@ -130,7 +130,8 @@ td, th {
 }
 
 td.tabs {
-    background-color: darkred;
+    border: 5px solid white;
+    background-color: red;
     text-align: center;
 }
 
