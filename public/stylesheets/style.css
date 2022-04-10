@@ -131,6 +131,7 @@ table {
 }
 
 .tabs {
+    border: none;
     margin-top: 15px;
     padding: 15px;
     table-layout: fixed;
