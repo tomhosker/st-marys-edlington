@@ -103,9 +103,8 @@ div.helpbox {
 
 hr.tabs {
     background-color: red;
-    border: none;
     color: red;
-    size: 30px;
+    size: 3px;
 }
 
 img {
