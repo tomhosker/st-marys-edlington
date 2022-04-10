@@ -127,7 +127,7 @@ td, th {
 }
 
 td.tabs {
-    border: none;
+    /* border: none; */
     text-align: center;
 }
 
