@@ -115,8 +115,9 @@ table {
 .tabs {
     padding: 15px;
     table-layout: fixed;
-    border-top: 5px solid red;
-    border-bottom: 5px solid red;
+    border: 5px solid red;
+    /* border-top: 5px solid red;
+    border-bottom: 5px solid red; */
     margin-top: 15px;
 }
 
@@ -127,7 +128,6 @@ td, th {
 }
 
 td.tabs {
-    /* border: none; */
     text-align: center;
 }
 
