@@ -90,6 +90,10 @@ div.helpbox {
     to {opacity: 1}
 }
 
+hr.tabs {
+    color: red
+}
+
 img {
     vertical-align: middle;
 }
@@ -114,11 +118,9 @@ table {
 }
 
 .tabs {
+    margin-top: 15px;
     padding: 15px;
     table-layout: fixed;
-    border-top: 5px solid red;
-    border-bottom: 5px solid red;
-    margin-top: 15px;
 }
 
 td, th {
@@ -128,9 +130,7 @@ td, th {
 }
 
 td.tabs {
-    border-collapse: collapse;
     background-color: darkred;
-    border: 0;
     text-align: center;
 }
 
