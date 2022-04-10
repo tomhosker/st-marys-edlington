@@ -133,10 +133,16 @@ td.tabs {
     border-top: none;
     border-bottom: none;
     text-align: center;
+    width: 100px;
 }
 
 tr:nth-child(even) {
     background-color: #dddddd;
+}
+
+tr.tabs {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 form {
