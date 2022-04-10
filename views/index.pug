@@ -13,16 +13,18 @@ block content
             br
             | #[i Post] &nbsp; #{parishPriest.address_name}
 
-        h2 Location
-        p #{location.house_name}
-            br
-            | #{location.firstLine}
-            br
-            | #{location.town}
-            br
-            | #{location.post_town}
-            br
-            | #{location.postcode}
+        h2 Locations
+        for location in locations
+            p #{location.house_name}
+                br
+                | #{location.firstLine}
+                br
+                | #{location.town}
+                br
+                | #{location.post_town}
+                br
+                | #{location.postcode}
+                br
 
     h1 Service Times
 
