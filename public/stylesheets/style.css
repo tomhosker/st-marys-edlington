@@ -108,10 +108,11 @@ table {
 }
 
 .tabs {
-    padding-top: 30px;
+    padding: 15px;
     table-layout: fixed;
     border-top: 5px solid red;
     border-bottom: 5px solid red;
+    margin-top: 15px;
 }
 
 td, th {
