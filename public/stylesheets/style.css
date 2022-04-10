@@ -65,6 +65,16 @@ body {
     display: none;
 }
 
+button.tabs {
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+}
+
 div.helpbox {
     float: right;
     width: 25%;
@@ -93,7 +103,7 @@ div.helpbox {
 hr.tabs {
     background-color: red;
     color: red;
-    height: 10px;
+    size: 10px;
 }
 
 img {
@@ -132,10 +142,7 @@ td, th {
 }
 
 td.tabs {
-    background-color: red;
-    border: 5px solid white;
     text-align: center;
-    width: 100px;
 }
 
 tr:nth-child(even) {
