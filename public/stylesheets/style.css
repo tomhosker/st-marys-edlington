@@ -91,7 +91,9 @@ div.helpbox {
 }
 
 hr.tabs {
+    background-color: red;
     color: red;
+    height: 10px;
 }
 
 img {
@@ -130,9 +132,10 @@ td, th {
 }
 
 td.tabs {
-    border: 5px solid white;
     background-color: red;
+    border: 5px solid white;
     text-align: center;
+    width: 100px;
 }
 
 tr:nth-child(even) {
