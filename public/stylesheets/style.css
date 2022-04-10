@@ -110,6 +110,7 @@ table {
 .tabs {
     padding: 12px;
     table-layout: fixed;
+    border-top: 5px solid black;
 }
 
 td, th {
