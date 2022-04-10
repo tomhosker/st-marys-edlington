@@ -129,9 +129,7 @@ td, th {
 
 td.tabs {
     background-color: darkred;
-    border: none;
-    border-top: none;
-    border-bottom: none;
+    border: 0;
     text-align: center;
     width: 100px;
 }
