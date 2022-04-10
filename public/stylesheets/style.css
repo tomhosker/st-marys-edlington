@@ -99,6 +99,7 @@ img.slideshow-homepage {
 }
 
 span.tabs {
+    color: white;
     font-size: 20px;
     font-weight: bold;
 }
@@ -115,9 +116,8 @@ table {
 .tabs {
     padding: 15px;
     table-layout: fixed;
-    border: 5px solid red;
-    /* border-top: 5px solid red;
-    border-bottom: 5px solid red; */
+    border-top: 5px solid red;
+    border-bottom: 5px solid red;
     margin-top: 15px;
 }
 
@@ -128,6 +128,10 @@ td, th {
 }
 
 td.tabs {
+    background-color: red;
+    border: none;
+    border-top: none;
+    border-bottom: none;
     text-align: center;
 }
 
