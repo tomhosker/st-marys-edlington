@@ -127,7 +127,6 @@ table {
 
 .tabs {
     border: none;
-    /* table-layout: fixed; */
 }
 
 td, th {
@@ -137,6 +136,7 @@ td, th {
 }
 
 td.tabs {
+    border: none;
     text-align: center;
 }
 
