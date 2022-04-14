@@ -88,6 +88,7 @@ div.helpbox {
 
 div.tabs {
     border-top: 5px solid;
+    border-bottom: 5px solid;
 }
 
 /* Slideshow stuff. */
