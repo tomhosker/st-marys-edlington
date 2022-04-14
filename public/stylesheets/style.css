@@ -131,12 +131,13 @@ table {
 
 td, th {
     border: 1px solid #dddddd;
-    text-align: left;
     padding: 8px;
+    text-align: left;
 }
 
 td.tabs {
     border: none;
+    padding: none;
     text-align: center;
 }
 
