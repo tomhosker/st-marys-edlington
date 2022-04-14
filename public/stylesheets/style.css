@@ -145,6 +145,11 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
+tr.tabs {
+    border: none;
+    padding: none;
+}
+
 form {
     padding-left: 30px;
 }
