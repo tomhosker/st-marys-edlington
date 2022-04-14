@@ -86,6 +86,10 @@ div.helpbox {
     border-radius: 10px;
 }
 
+div.tabs {
+    border-top: 5px solid;
+}
+
 /* Slideshow stuff. */
 .slideshow-container-homepage {
     max-width: 65%;
