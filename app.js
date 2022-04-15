@@ -38,6 +38,7 @@ const uploadsRouter = require("./routes/uploads");
 const adminRouter = require("./routes/admin");
 const newslettersRouter = require("./routes/newsletters");
 const webmasterRouter = require("./routes/webmaster");
+const youthRouter = require("./routes/youth");
 
 // Error codes.
 const notFound = 404;
