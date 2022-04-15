@@ -49,19 +49,12 @@ block content
         div.mySlides.fade
             img.slideshow-homepage(src="/images/st_marys_edlington_outside2.jpg")
 
-    if mostRecentNewsletter
-        h2 Newsletters
-        ul
-            li Most recent: #[a(href=mostRecentNewsletter.link) Week beginning #{mostRecentNewsletter.weekBeginning}]
-            li #[a(href="/newsletters") Older newsletters]
-
-    h2 Useful Pages
-    ul
-        li #[a(href="/stills/externallinks") Useful external links]
-
     if isAdmin
         h2 Hidden Area
         ul
             li #[a(href="/admin") Admin area]
+
+    h2 About Us
+    p PLEASE FILL ME IN!
 
     script(type="text/javascript", src="/frontend_scripts/slideshow.js")
