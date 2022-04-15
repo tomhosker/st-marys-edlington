@@ -65,7 +65,7 @@ body {
     display: none;
 }
 
-button.tabs a {
+button.tabs {
     background-color: red;
     border: none;
     color: white;
