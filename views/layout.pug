@@ -9,10 +9,10 @@ html
             div.tabs
                 table.tabs
                     tr
-                        td.tabs #[a(href="/") #[button(class="tabs") Home]]
-                        td.tabs #[button(class="tabs") About Us]
-                        td.tabs #[button(class="tabs") Youth]
-                        td.tabs #[button(class="tabs") Newsletters]
+                        td.tabs #[a(href="/") #[button.tabs Home]]
+                        td.tabs #[a(href="/about") #[button.tabs About Us]]
+                        td.tabs #[a(href="/youth") #[button.tabs Youth]]
+                        td.tabs #[a(href=mostRecentNewsletterURL) #[button.tabs Newsletter]]
                         td.tabs
                             div.dropdown
                                 button.tabs More
@@ -24,6 +24,7 @@ html
                                     a(href="/formation") Formation and Foundation
                                     a(href="/donate") Donate
                                     a(href="/outreach") Outreach
+                                    a(href="/newsletters") Older Newsletters
             block content
         footer
             br
