@@ -16,7 +16,7 @@ const router = express.Router();
 
 // GET home page.
 router.get("/", function (req, res, next) {
-    orm.scrapeNewsletters(req, res);
+    orm.getNewsletters(req, res);
 });
 
 module.exports = router;

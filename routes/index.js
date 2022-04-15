@@ -14,7 +14,7 @@ const orm = new ORM();
 
 // GET home page.
 router.get("/", function (req, res, next) {
-    orm.scrapeIndex(req, res);
+    orm.getIndex(req, res);
 });
 
 module.exports = router;

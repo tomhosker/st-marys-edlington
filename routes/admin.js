@@ -31,7 +31,7 @@ router.get("/add/:id", function (req, res, next) {
             title: "Add a New Service Time",
             formAction: action
         };
-        orm.scrapeUpload2ServiceTime(req, res, properties);
+        orm.getUpload2ServiceTime(req, res, properties);
     } else if(req.params.id === "Newsletter") {
         properties = {
             title: "Add a New Newsletter",
@@ -48,9 +48,9 @@ router.get("/remove/:id", function (req, res, next) {
     const action = "/uploads/deletefrom/"+req.params.id;
 
     if (req.params.id === "ServiceTime") {
-        orm.scrapeDeleteFromServiceTime(req, res, action);
+        orm.getDeleteFromServiceTime(req, res, action);
     } else if(req.params.id === "Newsletter") {
-        orm.scrapeDeleteFromNewsletter(req, res, action);
+        orm.getDeleteFromNewsletter(req, res, action);
     } else {
         res.redirect("/");
     }
