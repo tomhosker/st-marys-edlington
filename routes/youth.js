@@ -10,6 +10,7 @@ const Finaliser = require("../lib/finaliser.js");
 
 // Constants.
 const router = express.Router();
+const finaliser = new Finaliser();
 
 // GET the root page.
 router.get("/", function (req, res, next) {
