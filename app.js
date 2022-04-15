@@ -41,8 +41,8 @@ const webmasterRouter = require("./routes/webmaster");
 const youthRouter = require("./routes/youth");
 
 // Error codes.
-const notFound = 404;
-const internalServerError = 500;
+const NOT_FOUND = 404;
+const INTERNAL_SERVER_ERROR = 500;
 
 // Let's get cracking.
 const app = express();
@@ -85,6 +85,7 @@ app.use("/logmein", loginRouter);
 app.use("/newsletters", newslettersRouter);
 app.use("/stills", stillsRouter);
 app.use("/webmaster", webmasterRouter);
+app.use("/youth", youthRouter);
 app.use(
     "/profile",
     require("connect-ensure-login").ensureLoggedIn(),
@@ -118,7 +119,7 @@ app.get("/logout", function (req, res) {
 
 // Catch 404 and forward to error handler.
 app.use(function (req, res, next) {
-    next(createError(notFound));
+    next(createError(NOT_FOUND));
 });
 
 // Error handler.
@@ -127,7 +128,7 @@ app.use(function (err, req, res, next) {
     res.locals.message = err.message;
     res.locals.error = req.app.get("env") === "development" ? err : {};
     // Render the error page.
-    res.status(err.status || internalServerError);
+    res.status(err.status || INTERNAL_SERVER_ERROR);
     res.render("error");
 });
 
