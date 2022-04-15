@@ -15,14 +15,12 @@ html
                         td.tabs #[button(class="tabs") Newsletters]
                         td.tabs #[button(class="tabs") More]
                         td.tabs
-                            <div class="dropdown">
-                              <button class="tabs">Dropdown</button>
-                              <div class="dropdown-content">
-                                <a href="#">Link 1</a>
-                                <a href="#">Link 2</a>
-                                <a href="#">Link 3</a>
-                              </div>
-                            </div>
+                            div.dropdown
+                                button.tabs More
+                                    div.dropdown-content
+                                        #[a(href="#") Link 1]
+                                        #[a(href="#") Link 2]
+                                        #[a(href="#") Link 3]
             block content
         footer
             br
