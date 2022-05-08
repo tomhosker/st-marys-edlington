@@ -41,7 +41,6 @@ const adminRouter = require("./routes/admin");
 const newslettersRouter = require("./routes/newsletters");
 const webmasterRouter = require("./routes/webmaster");
 const youthRouter = require("./routes/youth");
-const notFoundRouter = require("./routes/notfound");
 
 // Error codes.
 const NOT_FOUND = 404;
