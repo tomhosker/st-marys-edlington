@@ -29,6 +29,8 @@ const favicon = require("express-favicon");
 const dotenv = require("dotenv").config();
 
 // Local imports.
+const Finaliser = require("./lib/finaliser.js");
+// Routers.
 const indexRouter = require("./routes/index");
 const loginRouter = require("./routes/logmein");
 const stillsRouter = require("./routes/stills");
@@ -119,12 +121,14 @@ app.get("/logout", function (req, res) {
 });
 
 // Actually catch 404. (The block after this one is belt-and-braces.)
-app.use(notFoundRouter);
+//app.use(notFoundRouter);
 
 // Catch 404 and forward to error handler.
-//app.use(function (req, res, next) {
-//    next(createError(NOT_FOUND));
-//});
+app.use(function (req, res, next) {
+    const finaliser = new Finaliser();
+
+    finaliser.finalise(req, res, "notfound", { title: "Not Found" });
+});
 
 // Error handler.
 app.use(function (err, req, res, next) {
