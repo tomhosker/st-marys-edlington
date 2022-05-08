@@ -39,6 +39,7 @@ const adminRouter = require("./routes/admin");
 const newslettersRouter = require("./routes/newsletters");
 const webmasterRouter = require("./routes/webmaster");
 const youthRouter = require("./routes/youth");
+const notFoundRouter = require("./routes/notfound");
 
 // Error codes.
 const NOT_FOUND = 404;
@@ -116,6 +117,9 @@ app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
 });
+
+// Actually catch 404. (The block after this one is belt-and-braces.)
+app.use("*", notFoundRouter);
 
 // Catch 404 and forward to error handler.
 app.use(function (req, res, next) {
