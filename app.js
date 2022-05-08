@@ -122,9 +122,9 @@ app.get("/logout", function (req, res) {
 app.use("*", notFoundRouter);
 
 // Catch 404 and forward to error handler.
-app.use(function (req, res, next) {
-    next(createError(NOT_FOUND));
-});
+//app.use(function (req, res, next) {
+//    next(createError(NOT_FOUND));
+//});
 
 // Error handler.
 app.use(function (err, req, res, next) {
