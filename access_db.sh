@@ -6,6 +6,9 @@
 # Constants.
 APP_NAME="st-marys-edlington"
 
+# Crash on the first failure.
+set -e
+
 # Check that we're logged into Heroku.
 if ! heroku whoami >/dev/null 2>&1; then
     if ! heroku login; then

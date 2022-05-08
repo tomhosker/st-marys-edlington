@@ -8,6 +8,9 @@
 DEV_REMOTE_NAME="heroku-dev"
 DEVELOPMENT_BRANCH_NAME="devel"
 
+# Crash on the first failure.
+set -e
+
 # Let's get cracking...
 git push $DEV_REMOTE_NAME $DEVELOPMENT_BRANCH_NAME:master
 git push origin $DEVELOPMENT_BRANCH_NAME

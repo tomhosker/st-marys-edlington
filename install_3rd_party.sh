@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Crash on the first failure.
+set -e
+
 # Install Heroku Command Line Interface.
 sudo snap install --classic heroku
 # Install PostgreSQL.
