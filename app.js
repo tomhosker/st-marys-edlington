@@ -121,9 +121,11 @@ app.get("/logout", function (req, res) {
 
 // Catch 404 and forward to error handler.
 app.use(function (req, res, next) {
-    const finaliser = new Finaliser();
+    res.send("SMEG!");
 
-    finaliser.finalise(req, res, "notfound", { title: "Not Found" });
+//    const finaliser = new Finaliser();
+
+//    finaliser.finalise(req, res, "notfound", { title: "Not Found" });
 });
 
 // Error handler.
