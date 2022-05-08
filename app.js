@@ -120,9 +120,6 @@ app.get("/logout", function (req, res) {
     res.redirect("/");
 });
 
-// Actually catch 404. (The block after this one is belt-and-braces.)
-//app.use(notFoundRouter);
-
 // Catch 404 and forward to error handler.
 app.use(function (req, res, next) {
     const finaliser = new Finaliser();
