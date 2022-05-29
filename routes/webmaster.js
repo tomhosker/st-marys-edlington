@@ -6,15 +6,15 @@ Returns a page giving the webmaster's details.
 const express = require("express");
 
 // Local imports.
-const Scraper = require("../lib/scraper.js");
+const ORM = require("../lib/orm.js");
 
 // Constants.
 const router = express.Router();
-const scraper = new Scraper();
+const orm = new ORM();
 
 // GET home page.
 router.get("/", function (req, res, next) {
-    scraper.scrapeWebmaster(req, res);
+    orm.getWebmaster(req, res);
 });
 
 module.exports = router;

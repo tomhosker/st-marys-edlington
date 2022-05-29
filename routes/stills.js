@@ -17,7 +17,7 @@ const CUSTOM_TITLES = {
 const router = express.Router();
 const finaliser = new Finaliser();
 
-// GET home page.
+// GET a given page.
 router.get("/:id", function (req, res, next) {
     const code = req.params.id;
     const title = getTitle(code, CUSTOM_TITLES);

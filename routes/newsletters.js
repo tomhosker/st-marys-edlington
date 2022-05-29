@@ -6,17 +6,17 @@ Routes the admin pages.
 const express = require("express");
 
 // Local imports.
-const Scraper = require("../lib/scraper.js");
+const ORM = require("../lib/orm.js");
 
 // Constant objects.
-const scraper = new Scraper();
+const orm = new ORM();
 
 // Constants.
 const router = express.Router();
 
 // GET home page.
 router.get("/", function (req, res, next) {
-    scraper.scrapeNewsletters(req, res);
+    orm.getNewsletters(req, res);
 });
 
 module.exports = router;

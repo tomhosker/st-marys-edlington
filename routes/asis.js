@@ -6,12 +6,12 @@ Returns a table from the database, pretty much as is.
 const express = require("express");
 
 // Local imports.
-const Scraper = require("../lib/scraper.js");
+const ORM = require("../lib/orm.js");
 const Finaliser = require("../lib/finaliser.js");
 
 // Constants.
 const router = express.Router();
-const scraper = new Scraper();
+const orm = new ORM();
 const finaliser = new Finaliser();
 
 // Get a list of all viewable tables.
@@ -21,7 +21,7 @@ router.get("/", function (req, res, next) {
 
 // Return the page for a given table.
 router.get("/:id", function (req, res, next) {
-    scraper.fetchAsIs(req, res);
+    orm.fetchAsIs(req, res);
 });
 
 module.exports = router;

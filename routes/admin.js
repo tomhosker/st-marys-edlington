@@ -7,11 +7,11 @@ const express = require("express");
 
 // Local imports.
 const Finaliser = require("../lib/finaliser.js");
-const Scraper = require("../lib/scraper.js");
+const ORM = require("../lib/orm.js");
 
 // Constant objects.
 const finaliser = new Finaliser();
-const scraper = new Scraper();
+const orm = new ORM();
 
 // Constants.
 const router = express.Router();
@@ -31,7 +31,7 @@ router.get("/add/:id", function (req, res, next) {
             title: "Add a New Service Time",
             formAction: action
         };
-        scraper.scrapeUpload2ServiceTime(req, res, properties);
+        orm.getUpload2ServiceTime(req, res, properties);
     } else if(req.params.id === "Newsletter") {
         properties = {
             title: "Add a New Newsletter",
@@ -48,9 +48,9 @@ router.get("/remove/:id", function (req, res, next) {
     const action = "/uploads/deletefrom/"+req.params.id;
 
     if (req.params.id === "ServiceTime") {
-        scraper.scrapeDeleteFromServiceTime(req, res, action);
+        orm.getDeleteFromServiceTime(req, res, action);
     } else if(req.params.id === "Newsletter") {
-        scraper.scrapeDeleteFromNewsletter(req, res, action);
+        orm.getDeleteFromNewsletter(req, res, action);
     } else {
         res.redirect("/");
     }
