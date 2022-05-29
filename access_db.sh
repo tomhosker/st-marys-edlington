@@ -4,7 +4,7 @@
 # application.
 
 # Constants.
-APP_NAME="st-marys-edlington"
+APP_NAME="st-marys-sacred-heart"
 
 # Crash on the first failure.
 set -e
@@ -12,6 +12,7 @@ set -e
 # Check that we're logged into Heroku.
 if ! heroku whoami >/dev/null 2>&1; then
     if ! heroku login; then
+        echo "Unable to log in. Try running `heroku login` manually."
         exit 1
     fi
 fi

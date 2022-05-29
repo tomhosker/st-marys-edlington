@@ -65,8 +65,20 @@ CREATE TABLE ParishRole (
 
 CREATE TABLE Newsletter (
     id SERIAL PRIMARY KEY,
-    week_beginning_day INT NOT NULL DEFAULT 1, -- Day of the month
+    week_beginning_day INT NOT NULL DEFAULT 1, -- Day of the month.
     week_beginning_month INT NOT NULL DEFAULT 0, -- 0 = January, 11 = December.
     week_beginning_year INT NOT NULL DEFAULT 2000,
     link VARCHAR(99) NOT NULL DEFAULT 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+);
+
+CREATE TABLE Pilgrimage (
+    id SERIAL PRIMARY KEY,
+    destination VARCHAR(99) NOT NULL DEFAULT 'Lourdes',
+    start_day INT, -- Day of the month.
+    start_month INT, -- 0 = January, 11 = December.
+    end_day INT, -- Day of the month.
+    end_month INT, -- 0 = January, 11 = December.
+    email VARCHAR(99),
+    telephone VARCHAR(99),
+    other_text VARCHAR(999)
 );
