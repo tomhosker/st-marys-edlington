@@ -150,6 +150,10 @@ img.slideshow-homepage {
     height: 300px;
 }
 
+img.pilgrimage {
+    width: 100%;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
