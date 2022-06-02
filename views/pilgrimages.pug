@@ -10,12 +10,12 @@ block content
         p #[i No pilgrimages are being organised at the moment.]
 
     for pilgrimage in pilgrimages
-        h2 #{pilgrimage.destination}
+        h2 #{pilgrimage.title}
         if pilgrimage.start && pilgrimage.end
             p #[i When] &nbsp; #{pilgrimage.start} &mdash; #{pilgrimage.end}
         if pilgrimage.email
             p #[i Email] &nbsp; #{pilgrimage.email}
         if pilgrimage.telephone
             p #[i Telephone] &nbsp; #{pilgrimage.telephone}
-        if pilgrimage.other_text
+        if pilgrimage.otherText
             p #{pilgrimage.otherText}
