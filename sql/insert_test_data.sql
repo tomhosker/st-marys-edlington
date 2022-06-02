@@ -119,3 +119,27 @@ INSERT INTO Newsletter (
     2021,
     'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
 );
+
+INSERT INTO Pilgrimage (
+    id,
+    destination,
+    start_day,
+    start_month,
+    end_day,
+    end_month,
+    end_year,
+    email,
+    telephone,
+    other_text
+) VALUES (
+    1,
+    'Lourdes',
+    24,
+    5,
+    30,
+    5,
+    3000,
+    'hallamlourdespilgrimage@gmail.com',
+    '01302247910',
+    'See <a href="https://www.hallam-lourdes.com/">the Hallam Lourdes website</a> for further information.'
+);

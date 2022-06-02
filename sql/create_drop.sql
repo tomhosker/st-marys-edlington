@@ -1,6 +1,7 @@
 -- Run me using:
 --   heroku pg:psql --app [APP_CODE] < [PATH_TO_SCRIPT].sql
 
+DROP TABLE IF EXISTS Pilgrimage;
 DROP TABLE IF EXISTS Newsletter;
 DROP TABLE IF EXISTS ParishRole;
 DROP TABLE IF EXISTS ServiceTime;
@@ -78,6 +79,7 @@ CREATE TABLE Pilgrimage (
     start_month INT, -- 0 = January, 11 = December.
     end_day INT, -- Day of the month.
     end_month INT, -- 0 = January, 11 = December.
+    end_year INT,
     email VARCHAR(99),
     telephone VARCHAR(99),
     other_text VARCHAR(999)
