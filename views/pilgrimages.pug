@@ -3,16 +3,19 @@ extends layout
 block content
     h1 #{title}
 
+    div.pilgrimage-image-box
+        img(src="/images/lourdes.jpg")
+
     if pilgrimages.length == 0
         p #[i No pilgrimages are being organised at the moment.]
 
     for pilgrimage in pilgrimages
         h2 #{pilgrimage.destination}
         if pilgrimage.start && pilgrimage.end
-            p #[i When.] #{pilgrimage.start} &mdash; #{pilgrimage.end}
+            p #[i When] &nbsp; #{pilgrimage.start} &mdash; #{pilgrimage.end}
         if pilgrimage.email
-            p #[i Email.] #{pilgrimage.email}
+            p #[i Email] &nbsp; #{pilgrimage.email}
         if pilgrimage.telephone
-            p #[i Telephone.] #{pilgrimage.telephone}
+            p #[i Telephone] &nbsp; #{pilgrimage.telephone}
         if pilgrimage.other_text
             p #{pilgrimage.otherText}

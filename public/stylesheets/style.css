@@ -87,6 +87,11 @@ div.helpbox {
     border-radius: 10px;
 }
 
+div.pilgrimage-image-box {
+    float: right;
+    width: 33%;
+}
+
 div.tabs {
     border-top: 5px solid;
     margin-top: 20px;
