@@ -6,15 +6,15 @@ Returns the "Youth" page(s).
 const express = require("express");
 
 // Local imports.
-const Finaliser = require("../lib/finaliser.js");
+const ORM = require("../lib/orm.js");
 
 // Constants.
 const router = express.Router();
-const finaliser = new Finaliser();
+const orm = new ORM();
 
-// GET the root page.
+// GET home page.
 router.get("/", function (req, res, next) {
-    finaliser.protoRender(req, res, "youth", { title: "Youth" });
+    orm.getYouth(req, res);
 });
 
 module.exports = router;

@@ -3,4 +3,20 @@ extends layout
 block content
     h1 #{title}
 
-    p PLEASE FILL ME IN!
+    h2 Children's Liturgy
+    p #[b Childrens' liturgy classes] are scheduled to take place alongside the following services:
+    table.homepage
+        tr
+            th Service
+            th Time
+            th Location
+            th Additional Information
+        for service in childrensLiturgies
+            tr
+                td=service.service_type
+                td=service.time
+                td=service.location_name
+                if service.childrens_liturgy_remarks
+                    td !{service.childrens_liturgy_remarks}
+                else
+                    td &mdash;

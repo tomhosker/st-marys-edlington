@@ -43,6 +43,12 @@ block content
                 for row in data.realWorldAddresses.rows
                     option(value=row[0]) #{row[1]}
         p
+            | Tick here if the service includes a children's liturgy.
+            input(type="checkbox", name="hasChildrensLiturgy")
+        p
+            | Special information about the children's liturgy (if applicable):
+            input(type="text", name="childrensLiturgyRemarks")
+        p
             | Remarks:
             input(type="text", name="remarks")
         input(type="submit", value="Submit")

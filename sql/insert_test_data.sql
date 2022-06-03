@@ -78,6 +78,8 @@ INSERT INTO ServiceTime (
     minutes,
     location,
     service_type,
+    has_childrens_liturgy,
+    childrens_liturgy_remarks,
     remarks
 ) VALUES (
     1,
@@ -89,6 +91,21 @@ INSERT INTO ServiceTime (
     0,
     'st-marys-edlington',
     'Mass',
+    true,
+    null,
+    null
+), (
+    2,
+    0,
+    null,
+    null,
+    null,
+    9,
+    0,
+    'sacred-heart-balby',
+    'Mass',
+    true,
+    'Only on the first and third Sundays of each month.',
     null
 );
 

@@ -1,6 +1,7 @@
 -- Run me using:
 --   heroku pg:psql --app [APP_CODE] < [PATH_TO_SCRIPT].sql
 
+DROP TABLE IF EXISTS ChildrensLiturgy;
 DROP TABLE IF EXISTS Pilgrimage;
 DROP TABLE IF EXISTS Newsletter;
 DROP TABLE IF EXISTS ParishRole;
@@ -49,6 +50,8 @@ CREATE TABLE ServiceTime (
     minutes INT NOT NULL DEFAULT 0,
     location VARCHAR(99) NOT NULL DEFAULT 'st-marys-edlington',
     service_type VARCHAR(99) NOT NULL DEFAULT 'Mass',
+    has_childrens_liturgy BOOLEAN NOT NULL DEFAULT false,
+    childrens_liturgy_remarks VARCHAR(999),
     remarks VARCHAR(99),
     CONSTRAINT fk_location
         FOREIGN KEY(location)

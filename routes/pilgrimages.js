@@ -1,5 +1,5 @@
 /*
-Returns the home page.
+Returns the pilgrimages page.
 */
 
 // Imports.
