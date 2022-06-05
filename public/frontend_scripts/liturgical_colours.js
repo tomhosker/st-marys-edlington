@@ -13,7 +13,7 @@ class ColourChanger {
     changeColours() {
         for (let i = 0; i < this.helpboxes.length; i++) {
             console.log(this.helpboxes[i].className);
-            this.helpboxes[i].className = "helpbox:green";
+            this.helpboxes[i].className = "helpbox-green";
             console.log(this.helpboxes[i]);
         }
     }
