@@ -77,6 +77,10 @@ button.liturgical-background {
     cursor: pointer;
 }
 
+.green-background {
+    background-color: green;
+}
+
 div.helpbox {
     float: right;
     width: 25%;
