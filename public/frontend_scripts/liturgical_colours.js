@@ -18,5 +18,7 @@ class ColourChanger {
 }
 
 // Let's get cracking...
-const colourChanger = new ColourChanger();
-colourChanger.changeColours();
+//const colourChanger = new ColourChanger();
+//colourChanger.changeColours();
+
+document.querySelector("div").classList.replace("helpbox", "helpbox-green")
