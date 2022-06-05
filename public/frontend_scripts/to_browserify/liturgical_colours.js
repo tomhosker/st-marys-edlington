@@ -13,18 +13,55 @@ function recolorElements(className, field, color) {
     elements.forEach(element => { element.style[field] = color; });
 }
 
+// A helper function.
+function convertRawColor(rawColor) {
+    if (rawColor === "RED") return "red";
+    else if (rawColor === "ROSE") return "deeppink";
+    else if (rawColor === "PURPLE") return "purple";
+    else if (rawColor === "GREEN") return "green";
+    else if (rawColor === "WHITE") return "gold";
+    else if (rawColor === "GOLD") return "gold";
+
+    throw new Error("Unrecognised liturgical color: "+rawColor);
+}
+
 // The class in question.
 class ColorChanger {
     constructor() {
         this.litColor = "gold";
-        this.calendar = RomCal.calendarFor();
-console.log(this.calendar);
+        this.liturgicalColor = this.getLiturgicalColor();
+    }
+
+    getLiturgicalColor() {
+        const calendar = RomCal.calendarFor();
+        const today = new Date();
+        let moment, result;
+
+        for (let i = 0; i < calendar.length; i++) {
+            if (calendar[i].moment) {
+                moment = new Date(calendar[i].moment);
+
+                if (
+                    (moment.getFullYear() === today.getFullYear()) &&
+                    (moment.getMonth() === today.getMonth()) &&
+                    (moment.getDate() === today.getDate())
+                ) {
+                    result = 
+                        convertRawColor(calendar[i].data.meta.liturgicalColor);
+                    return result;
+                }
+            }
+        }
+
+        throw new Error("No matching color found.");
     }
 
     recolorElements(className, field) {
         const elements = document.querySelectorAll("."+className);
 
-        elements.forEach(element => { element.style[field] = this.litColor; });
+        elements.forEach(element => {
+            element.style[field] = this.liturgicalColor;
+        });
     }
 
     recolor() {
