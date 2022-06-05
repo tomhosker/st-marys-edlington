@@ -6,6 +6,7 @@ the current liturgical colour.
 // A helper function.
 function recolorElements(elementList, newClassName) {
     for (let i = 0; i < elementList.length; i++) {
+        console.log(elementList[i].className);
         elementList[i].className = newClassName;
     }
 }
