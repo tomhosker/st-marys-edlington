@@ -87,7 +87,7 @@ div.helpbox {
     border-radius: 10px;
 }
 
-div.helpbox.green {
+div.helpbox:green {
     float: right;
     width: 25%;
     border: 5px solid black;
