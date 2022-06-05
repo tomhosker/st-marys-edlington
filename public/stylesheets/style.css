@@ -94,11 +94,11 @@ div.pilgrimage-image-box {
 }
 
 div.liturgical-border {
-    border-color: white;
     border-top: 5px solid;
     margin-top: 20px;
     border-bottom: 5px solid;
     margin-bottom: 20px;
+    border-color: white;
 }
 
 .dropdown {
