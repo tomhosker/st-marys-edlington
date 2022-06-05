@@ -6,12 +6,10 @@
 PATH_TO_FOLDER_TO_BROWSERIFY="public/frontend_scripts/to_browserify"
 PATH_TO_BROWSERIFIED_FOLDER="public/frontend_scripts/browserified"
 
-# Crash on the first error.
+# Crash on the first failure.
 set -e
 
 # Let's get cracking...
-for filename in $PATH_TO_FOLDER_TO_BROWSERIFY/*.js; do
-    browserify \
-        $PATH_TO_FOLDER_TO_BROWSERIFY/$filename > \
-        $PATH_TO_BROWSERIFIED_FOLDER/$filename
+for filepath in $PATH_TO_FOLDER_TO_BROWSERIFY/*.js; do
+    browserify $filepath > $PATH_TO_BROWSERIFIED_FOLDER/$(basename $filepath)
 done

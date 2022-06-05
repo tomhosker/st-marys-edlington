@@ -12,5 +12,6 @@ DEVELOPMENT_BRANCH_NAME="devel"
 set -e
 
 # Let's get cracking...
+sh run_browserify.sh
 git push $DEV_REMOTE_NAME $DEVELOPMENT_BRANCH_NAME:master
 git push origin $DEVELOPMENT_BRANCH_NAME

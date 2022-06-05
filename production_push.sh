@@ -8,5 +8,6 @@
 set -e
 
 # Let's get cracking...
+sh run_browserify.sh
 git push heroku master
 git push origin master
