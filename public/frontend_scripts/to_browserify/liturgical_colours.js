@@ -15,14 +15,14 @@ function recolorElements(className, field, color) {
 
 // A helper function.
 function convertRawColor(rawColor) {
-    if (rawColor === "RED") return "red";
-    else if (rawColor === "ROSE") return "deeppink";
-    else if (rawColor === "PURPLE") return "purple";
-    else if (rawColor === "GREEN") return "green";
-    else if (rawColor === "WHITE") return "gold";
-    else if (rawColor === "GOLD") return "gold";
+    if (rawColor === RomCal.LiturgicalColors.RED) return "red";
+    else if (rawColor === RomCal.LiturgicalColors.ROSE) return "deeppink";
+    else if (rawColor === RomCal.LiturgicalColors.PURPLE) return "purple";
+    else if (rawColor === RomCal.LiturgicalColors.GREEN) return "green";
+    else if (rawColor === RomCal.LiturgicalColors.WHITE) return "gold";
+    else if (rawColor === RomCal.LiturgicalColors.GOLD) return "gold";
 
-    throw new Error("Unrecognised liturgical color: "+rawColor);
+    throw new Error("Unrecognised liturgical color: "+rawColor.toString());
 }
 
 // The class in question.
@@ -30,8 +30,6 @@ class ColorChanger {
     constructor() {
         this.litColor = "gold";
         this.liturgicalColor = this.getLiturgicalColor();
-
-console.log(this.liturgicalColor);
     }
 
     getLiturgicalColor() {

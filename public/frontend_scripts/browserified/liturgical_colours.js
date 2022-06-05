@@ -43165,6 +43165,8 @@ class ColorChanger {
     constructor() {
         this.litColor = "gold";
         this.liturgicalColor = this.getLiturgicalColor();
+
+console.log(this.liturgicalColor);
     }
 
     getLiturgicalColor() {
