@@ -6,15 +6,14 @@ the current liturgical colour.
 // The class in question.
 class ColourChanger {
     constructor() {
-        this.helpboxes = document.getElementsByClassName("helpbox");
+        this.helpboxes = document.getElementsByClassName("recolourable");
     }
 
     // Change the colour of each element.
     changeColours() {
         for (let i = 0; i < this.helpboxes.length; i++) {
             console.log(this.helpboxes[i].className);
-            this.helpboxes[i].className = "helpbox-green";
-            console.log(this.helpboxes[i]);
+            this.helpboxes[i].className = "green";
         }
     }
 }
