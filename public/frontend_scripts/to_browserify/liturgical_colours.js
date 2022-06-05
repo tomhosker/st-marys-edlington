@@ -41,6 +41,8 @@ class ColorChanger {
             if (calendar[i].moment) {
                 moment = new Date(calendar[i].moment);
 
+console.log(calendar[i]);
+
                 if (
                     (moment.getFullYear() === today.getFullYear()) &&
                     (moment.getMonth() === today.getMonth()) &&
