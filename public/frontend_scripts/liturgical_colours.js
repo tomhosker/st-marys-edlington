@@ -12,13 +12,12 @@ class ColourChanger {
     // Change the colour of each element.
     changeColours() {
         for (let i = 0; i < this.helpboxes.length; i++) {
-            this.helpboxes[i].className = "helpbox-green";
+            console.log(this.helpboxes[i].className);
+            //this.helpboxes[i].className = "helpbox-green";
         }
     }
 }
 
 // Let's get cracking...
-//const colourChanger = new ColourChanger();
-//colourChanger.changeColours();
-
-document.querySelector("div").classList.replace("helpbox", "helpbox-green")
+const colourChanger = new ColourChanger();
+colourChanger.changeColours();
