@@ -3,21 +3,29 @@ This is a front end script which changes the colours of elements according to
 the current liturgical colour.
 */
 
+// A helper function.
+function recolorElements(elementList, newClassName) {
+    for (let i = 0; i < elementList.length; i++) {
+        elementList[i].className = newClassName;
+    }
+}
+
 // The class in question.
-class ColourChanger {
+class ColorChanger {
     constructor() {
-        this.helpboxes = document.getElementsByClassName("recolourable");
+        this.litColor = "green";
+        this.litBackgrounds =
+            document.getElementsByClassName("liturgical-background");
+        this.litBorders = document.getElementsByClassName("liturgical-border");
     }
 
     // Change the colour of each element.
-    changeColours() {
-        for (let i = 0; i < this.helpboxes.length; i++) {
-            console.log(this.helpboxes[i].className);
-            this.helpboxes[i].className = "green";
-        }
+    changeColors() {
+        recolorElements(this.litBackgrounds, this.litColor+"-background");
+        recolorElements(this.litBorders, this.litColor+"-border");
     }
 }
 
 // Let's get cracking...
-const colourChanger = new ColourChanger();
-colourChanger.changeColours();
+const colorChanger = new ColorChanger();
+colorChanger.changeColors();

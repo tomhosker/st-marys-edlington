@@ -65,7 +65,7 @@ body {
     display: none;
 }
 
-button.tabs {
+button.liturgical-background {
     background-color: black;
     border: none;
     color: white;
@@ -162,11 +162,11 @@ helpbox {
     border-radius: 10px;
 }
 
-.recolourable {
+.liturgical-border {
     border-color: black;
 }
 
-.green {
+.green-border {
     border-color: green;
 }
 
