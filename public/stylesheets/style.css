@@ -87,7 +87,13 @@ div.helpbox {
     border-radius: 10px;
 }
 
-.green-borders {
+div.helpbox {
+    float: right;
+    width: 25%;
+    border: 5px solid black;
+    margin: 20px auto 15px;
+    padding-left: 20px;
+    padding-right: 20px;
     border-color: green;
 }
 
