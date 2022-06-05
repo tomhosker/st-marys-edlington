@@ -38,7 +38,7 @@ class ColorChanger {
         const todayAtMidnight =
             new Date(today.getFullYear(), today.getMonth(), today.getDate());
         const moment = todayAtMidnight.toISOString();
-        let moment, result;
+        let result;
 
         for (let i = 0; i < calendar.length; i++) {
             if (calendar[i].moment === moment) {
