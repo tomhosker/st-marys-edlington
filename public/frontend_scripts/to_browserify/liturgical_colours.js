@@ -15,14 +15,14 @@ function recolorElements(className, field, color) {
 
 // A helper function.
 function convertRawColor(rawColor) {
-    if (rawColor === RomCal.LiturgicalColors.RED) return "red";
-    else if (rawColor === RomCal.LiturgicalColors.ROSE) return "deeppink";
-    else if (rawColor === RomCal.LiturgicalColors.PURPLE) return "purple";
-    else if (rawColor === RomCal.LiturgicalColors.GREEN) return "green";
-    else if (rawColor === RomCal.LiturgicalColors.WHITE) return "gold";
-    else if (rawColor === RomCal.LiturgicalColors.GOLD) return "gold";
+    if (rawColor === "RED") return "red";
+    else if (rawColor === "ROSE") return "deeppink";
+    else if (rawColor === "PURPLE") return "purple";
+    else if (rawColor === "GREEN") return "green";
+    else if (rawColor === "WHITE") return "gold";
+    else if (rawColor === "GOLD") return "gold";
 
-    throw new Error("Unrecognised liturgical color: "+rawColor.toString());
+    throw new Error("Unrecognised liturgical color: "+rawColor);
 }
 
 // The class in question.
@@ -41,15 +41,15 @@ class ColorChanger {
             if (calendar[i].moment) {
                 moment = new Date(calendar[i].moment);
 
-console.log(calendar[i]);
-
                 if (
                     (moment.getFullYear() === today.getFullYear()) &&
                     (moment.getMonth() === today.getMonth()) &&
                     (moment.getDate() === today.getDate())
                 ) {
                     result = 
-                        convertRawColor(calendar[i].data.meta.liturgicalColor);
+                        convertRawColor(
+                            calendar[i].data.meta.liturgicalColor.key
+                        );
                     return result;
                 }
             }
