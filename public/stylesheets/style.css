@@ -87,6 +87,10 @@ div.helpbox {
     border-radius: 10px;
 }
 
+div.helpbox.green {
+    border-color: green;
+}
+
 div.pilgrimage-image-box {
     float: right;
     width: 40%;
