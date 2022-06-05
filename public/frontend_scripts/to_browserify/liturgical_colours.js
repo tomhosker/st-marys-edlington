@@ -35,23 +35,18 @@ class ColorChanger {
     getLiturgicalColor() {
         const calendar = RomCal.calendarFor();
         const today = new Date();
+        const todayAtMidnight =
+            new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        const moment = todayAtMidnight.toISOString();
         let moment, result;
 
         for (let i = 0; i < calendar.length; i++) {
-            if (calendar[i].moment) {
-                moment = new Date(calendar[i].moment);
-
-                if (
-                    (moment.getFullYear() === today.getFullYear()) &&
-                    (moment.getMonth() === today.getMonth()) &&
-                    (moment.getDate() === today.getDate())
-                ) {
-                    result = 
-                        convertRawColor(
-                            calendar[i].data.meta.liturgicalColor.key
-                        );
-                    return result;
-                }
+            if (calendar[i].moment === moment) {
+                result = 
+                    convertRawColor(
+                        calendar[i].data.meta.liturgicalColor.key
+                    );
+                return result;
             }
         }
 
