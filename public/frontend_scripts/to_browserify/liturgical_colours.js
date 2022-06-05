@@ -17,8 +17,8 @@ function recolorElements(className, field, color) {
 class ColorChanger {
     constructor() {
         this.litColor = "gold";
-        calendar = RomCal.calendarFor();
-console.log(calendar);
+        this.calendar = RomCal.calendarFor();
+console.log(this.calendar);
     }
 
     recolorElements(className, field) {
