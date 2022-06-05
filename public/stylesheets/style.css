@@ -87,7 +87,7 @@ div.helpbox {
     border-radius: 10px;
 }
 
-div.helpbox.green {
+.green-borders {
     border-color: green;
 }
 

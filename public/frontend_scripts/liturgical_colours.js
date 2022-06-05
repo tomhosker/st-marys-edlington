@@ -12,7 +12,7 @@ class ColourChanger {
     // Change the colour of each element.
     changeColours() {
         for (let i = 0; i < this.helpboxes.length; i++) {
-            this.helpboxes[i].className = "helpbox.green";
+            this.helpboxes[i].className = "helpbox.green-borders";
         }
     }
 }
