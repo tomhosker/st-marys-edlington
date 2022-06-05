@@ -5,11 +5,9 @@ the current liturgical colour.
 
 // A helper function.
 function recolorElements(oldClassName, newClassName) {
-    let elementList = document.getElementsByClassName(oldClassName);
+    const elements = document.querySelectorAll("."+oldClassName);
 
-    for (let i = 0; i < elementList.length; i++) {
-        elementList[i].classList.replace(oldClassName, newClassName);
-    }
+    elements.forEach(element => { element.className = newClassName; });
 }
 
 // The class in question.
