@@ -13,7 +13,7 @@ function recolorElements(className, field, color) {
 // The class in question.
 class ColorChanger {
     constructor() {
-        this.litColor = "deeppink";
+        this.litColor = "gold";
     }
 
     recolorElements(className, field) {
