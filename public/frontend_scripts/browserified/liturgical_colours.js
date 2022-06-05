@@ -43177,8 +43177,6 @@ class ColorChanger {
         const moment = todayAtMidnight.toISOString();
         let result;
 
-console.log(moment);
-
         for (let i = 0; i < calendar.length; i++) {
             if (calendar[i].moment === moment) {
                 result = 
