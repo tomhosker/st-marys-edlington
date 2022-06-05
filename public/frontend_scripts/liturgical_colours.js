@@ -24,7 +24,7 @@ class ColorChanger {
 
     recolor() {
         this.recolorElements("liturgical-background", "background-color");
-        //this.recolorElements("liturgical-border", "border-color");
+        this.recolorElements("liturgical-border", "border-color");
     }
 }
 
