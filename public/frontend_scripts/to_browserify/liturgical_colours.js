@@ -36,7 +36,9 @@ class ColorChanger {
         const calendar = RomCal.calendarFor();
         const today = new Date();
         const todayAtMidnight =
-            new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0);
+            new Date(Date.UTC(
+                today.getFullYear(), today.getMonth(), today.getDate()
+            ));
         const moment = todayAtMidnight.toISOString();
         let result;
 
