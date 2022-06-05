@@ -3,6 +3,9 @@ This is a front end script which changes the colours of elements according to
 the current liturgical colour.
 */
 
+// Imports.
+const RomCal = require("romcal");
+
 // A helper function.
 function recolorElements(className, field, color) {
     const elements = document.querySelectorAll("."+className);
@@ -14,6 +17,8 @@ function recolorElements(className, field, color) {
 class ColorChanger {
     constructor() {
         this.litColor = "gold";
+        calendar = RomCal.calendarFor();
+console.log(calendar);
     }
 
     recolorElements(className, field) {
