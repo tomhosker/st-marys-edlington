@@ -77,10 +77,6 @@ button.liturgical-background {
     cursor: pointer;
 }
 
-.green-background {
-    background-color: green;
-}
-
 div.helpbox {
     float: right;
     width: 25%;
@@ -89,16 +85,6 @@ div.helpbox {
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 10px;
-}
-
-div.helpbox-green {
-    float: right;
-    width: 25%;
-    border: 5px solid black;
-    margin: 20px auto 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-color: green;
 }
 
 div.pilgrimage-image-box {
@@ -154,24 +140,6 @@ div.tabs {
 @keyframes fade {
     from {opacity: .4} 
     to {opacity: 1}
-}
-
-helpbox {
-    float: right;
-    width: 25%;
-    border: 5px solid black;
-    margin: 20px auto 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 10px;
-}
-
-.liturgical-border {
-    border-color: black;
-}
-
-.green-border {
-    border-color: green;
 }
 
 img {

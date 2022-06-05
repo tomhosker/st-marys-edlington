@@ -4,10 +4,10 @@ the current liturgical colour.
 */
 
 // A helper function.
-function recolorElements(oldClassName, newClassName) {
-    const elements = document.querySelectorAll("."+oldClassName);
+function recolorElements(className, field, color) {
+    const elements = document.querySelectorAll("."+className);
 
-    elements.forEach(element => { element.className = newClassName; });
+    elements.forEach(element => { element.style[field] = color; });
 }
 
 // The class in question.
@@ -16,13 +16,18 @@ class ColorChanger {
         this.litColor = "green";
     }
 
-    // Change the colour of each element.
-    changeColors() {
-        recolorElements("liturgical-background", this.litColor+"-background");
-        recolorElements("liturgical-border", this.litColor+"-border");
+    recolorElements(className, field) {
+        const elements = document.querySelectorAll("."+className);
+
+        elements.forEach(element => { element.style[field] = this.litColor; });
+    }
+
+    recolor() {
+        this.recolorElements("liturgical-background", "background-color");
+        this.recolorElements("liturgical-border", "border-color");
     }
 }
 
 // Let's get cracking...
 const colorChanger = new ColorChanger();
-colorChanger.changeColors();
+colorChanger.recolor();
