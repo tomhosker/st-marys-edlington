@@ -152,6 +152,24 @@ div.tabs {
     to {opacity: 1}
 }
 
+helpbox {
+    float: right;
+    width: 25%;
+    border: 5px solid black;
+    margin: 20px auto 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+}
+
+.recolourable {
+    border-color: black;
+}
+
+.green {
+    border-color: green;
+}
+
 img {
     vertical-align: middle;
 }
