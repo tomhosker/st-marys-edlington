@@ -4,9 +4,11 @@ the current liturgical colour.
 */
 
 // A helper function.
-function recolorElements(elementList, newClassName) {
+function recolorElements(oldClassName, newClassName) {
+    let elementList = document.getElementsByClassName(oldClassName);
+
     for (let i = 0; i < elementList.length; i++) {
-        //elementList[i].className = newClassName;
+        elementList[i].classList.replace(oldClassName, newClassName);
     }
 }
 
@@ -14,15 +16,12 @@ function recolorElements(elementList, newClassName) {
 class ColorChanger {
     constructor() {
         this.litColor = "green";
-        this.litBackgrounds =
-            document.getElementsByClassName("liturgical-background");
-        this.litBorders = document.getElementsByClassName("liturgical-border");
     }
 
     // Change the colour of each element.
     changeColors() {
-        recolorElements(this.litBackgrounds, this.litColor+"-background");
-        recolorElements(this.litBorders, this.litColor+"-border");
+        recolorElements("liturgical-background", this.litColor+"-background");
+        recolorElements("liturgical-border", this.litColor+"-border");
     }
 }
 
