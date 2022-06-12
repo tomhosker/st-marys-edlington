@@ -60,6 +60,10 @@ class ColorChanger {
 
         elements.forEach(element => {
             element.style[field] = this.liturgicalColor;
+
+            if (this.liturgicalColor === "yellow") {
+                element.style.textShadow = "1px 1px black";
+            }
         });
     }
 
