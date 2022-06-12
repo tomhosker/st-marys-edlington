@@ -60,13 +60,6 @@ class ColorChanger {
 
         elements.forEach(element => {
             element.style[field] = this.liturgicalColor;
-
-            if (
-                (this.liturgicalColor === "gold") &&
-                (field === "background-color")
-            ) {
-                element.style.textShadow = "1px 1px black";
-            }
         });
     }
 
