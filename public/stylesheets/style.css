@@ -152,10 +152,7 @@ helpbox {
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 10px;
-}
-
-.liturgical-border {
-    border-color: white;
+    border-color: orange;
 }
 
 img {
@@ -168,6 +165,20 @@ img.slideshow-homepage {
 
 img.pilgrimage {
     width: 100%;
+}
+
+sidebox {
+    float: right;
+    width: 25%;
+    border: 5px solid black;
+    margin: 20px auto 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+}
+
+.liturgical-border {
+    border-color: white;
 }
 
 table {
