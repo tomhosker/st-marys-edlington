@@ -1,8 +1,10 @@
 #!/bin/sh
 
-### This script (1) pushes the local master branch to the master branch of
-### Heroku's main remote, and (2) pushes said local branch to the "origin"
-### remote.
+### This script:
+###     (1) runs browserify;
+###     (2) pushes the local master branch to the master branch of Heroku's
+###         main remote;
+###     (3) pushes said local branch to the "origin" remote.
 
 # Crash on the first failure.
 set -e

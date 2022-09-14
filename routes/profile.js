@@ -14,7 +14,7 @@ const finaliser = new Finaliser();
 
 // Return the home page.
 router.get("/", function (req, res, next) {
-    var theTitle = "User: " + req.user.username;
+    let theTitle = "User: " + req.user.username;
 
     finaliser.protoRender(req, res, "profile", {
         title: theTitle,

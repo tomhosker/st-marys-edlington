@@ -10,10 +10,11 @@ const ORM = require("../lib/orm.js");
 
 // Constants.
 const router = express.Router();
-const orm = new ORM();
 
 // GET home page.
 router.get("/", function (req, res, next) {
+    const orm = new ORM(req, res);
+
     orm.getPilgrimages(req, res);
 });
 

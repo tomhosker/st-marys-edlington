@@ -11,7 +11,6 @@ const ORM = require("../lib/orm.js");
 
 // Constant objects.
 const finaliser = new Finaliser();
-const orm = new ORM();
 
 // Constants.
 const router = express.Router();
@@ -24,6 +23,7 @@ router.get("/", function (req, res, next) {
 // Add records to the database.
 router.get("/add/:id", function (req, res, next) {
     const action = "/uploads/insert2/"+req.params.id;
+    const orm = new ORM(req, res);
     let properties;
 
     if (req.params.id === "ServiceTime") {
@@ -38,22 +38,19 @@ router.get("/add/:id", function (req, res, next) {
             formAction: action
         };
         finaliser.protoRender(req, res, "upload2Newsletter", properties);
-    } else {
-        res.redirect("/");
-    }
+    } else res.redirect("/");
 });
 
 // Remove records from the database.
 router.get("/remove/:id", function (req, res, next) {
     const action = "/uploads/deletefrom/"+req.params.id;
+    const orm = new ORM(req, res);
 
     if (req.params.id === "ServiceTime") {
         orm.getDeleteFromServiceTime(req, res, action);
     } else if(req.params.id === "Newsletter") {
         orm.getDeleteFromNewsletter(req, res, action);
-    } else {
-        res.redirect("/");
-    }
+    } else res.redirect("/");
 });
 
 module.exports = router;

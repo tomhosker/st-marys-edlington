@@ -11,7 +11,6 @@ const Finaliser = require("../lib/finaliser.js");
 
 // Constants.
 const router = express.Router();
-const orm = new ORM();
 const finaliser = new Finaliser();
 
 // Get a list of all viewable tables.
@@ -21,6 +20,8 @@ router.get("/", function (req, res, next) {
 
 // Return the page for a given table.
 router.get("/:id", function (req, res, next) {
+    const orm = new ORM(req, res);
+
     orm.fetchAsIs(req, res);
 });
 
