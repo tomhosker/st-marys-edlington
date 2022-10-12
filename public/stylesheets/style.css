@@ -61,10 +61,6 @@ body {
     background-size: auto 100%;
 }
 
-.mySlides {
-    display: none;
-}
-
 button.liturgical-background {
     border: none;
     color: white;
@@ -130,12 +126,28 @@ div.liturgical-border {
 .dropdown:hover .dropbtn { background-color: #3e8e41; }
 
 /* Slideshow stuff. */
-.slideshow-container-homepage {
-    max-width: 65%;
+.slideshows-container {
+    overflow: hidden;
+}
+.slideshow-container {
+    width: 40%;
+    height: 100%;
+    float: left;
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-right: 20px;
+}
+.slideshow {
+    width: 100%;
+}
+.mySlides {
+    display: none;
+}
+.mySlidesBatch2 {
+    display: none;
 }
 .fade {
+    width: 100%;
     animation-name: fade;
     animation-duration: 1.5s;
 }
@@ -157,10 +169,6 @@ helpbox {
 
 img {
     vertical-align: middle;
-}
-
-img.slideshow-homepage {
-    height: 300px;
 }
 
 img.pilgrimage {

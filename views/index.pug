@@ -39,22 +39,30 @@ block content
                 td=service.time
                 td=service.location_name
 
-    div.slideshow-container-homepage
-        div.mySlides.fade
-            img.slideshow-homepage(src="/images/st_marys_edlington_nave.jpg")
-        div.mySlides.fade
-            img.slideshow-homepage(src="/images/st_marys_edlington_font.jpg")
-        div.mySlides.fade
-            img.slideshow-homepage(src="/images/st_marys_edlington_outside1.jpg")
-        div.mySlides.fade
-            img.slideshow-homepage(src="/images/st_marys_edlington_outside2.jpg")
+    div.slideshows-container
+        div.slideshow-container
+            div.mySlidesBatch2.fade
+                img.slideshow(src="/images/slideshows/sacred_heart/1.jpg")
+            div.mySlidesBatch2.fade
+                img.slideshow(src="/images/slideshows/sacred_heart/2.jpg")
+            div.mySlidesBatch2.fade
+                img.slideshow(src="/images/slideshows/sacred_heart/3.jpg")
+        div.slideshow-container
+            div.mySlides.fade
+                img.slideshow(src="/images/slideshows/st_marys/1.jpg")
+            div.mySlides.fade
+                img.slideshow(src="/images/slideshows/st_marys/2.jpg")
+            div.mySlides.fade
+                img.slideshow(src="/images/slideshows/st_marys/3.jpg")
+            div.mySlides.fade
+                img.slideshow(src="/images/slideshows/st_marys/4.jpg")
 
     if isAdmin
         h2 Hidden Area
         ul
             li #[a(href="/admin") Admin area]
 
-    h2 About Us
-    p PLEASE FILL ME IN!
+    h2 Welcome
+    p On behalf of the parishes of #[b St Mary's Edlington] and #[b Sacred Heart Balby], welcome! We are two communities, both based in the #[b Doncaster] area, who gather regularly to worship, to receive the sacraments, to announce the gospel, and to support each other in following Jesus Christ. Our church services are #[b open to all], and we strive to create communities where all will feel welcome.
 
     script(type="text/javascript", src="/frontend_scripts/slideshow.js")
