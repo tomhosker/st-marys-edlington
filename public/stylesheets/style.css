@@ -98,8 +98,8 @@ div.liturgical-border {
 }
 
 .dropdown {
-    position: relative;
     display: inline-block;
+    position: relative;
 }
 
 .dropdown-content {

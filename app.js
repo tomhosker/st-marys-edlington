@@ -42,6 +42,7 @@ const newslettersRouter = require("./routes/newsletters");
 const webmasterRouter = require("./routes/webmaster");
 const youthRouter = require("./routes/youth");
 const pilgrimagesRouter = require("./routes/pilgrimages");
+const otherDocsRouter = require("./routes/other_documents");
 
 // Error codes.
 const NOT_FOUND = 404;
@@ -90,6 +91,7 @@ app.use("/stills", stillsRouter);
 app.use("/webmaster", webmasterRouter);
 app.use("/youth", youthRouter);
 app.use("/pilgrimages", pilgrimagesRouter);
+app.use("/other-documents", otherDocsRouter)
 app.use(
     "/profile",
     require("connect-ensure-login").ensureLoggedIn(),

@@ -87,3 +87,10 @@ CREATE TABLE Pilgrimage (
     telephone VARCHAR(99),
     other_text VARCHAR(999)
 );
+
+CREATE TABLE OtherDocument (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(99),
+    publication_date DATE DEFAULT CURRENT_DATE,
+    link VARCHAR(99) NOT NULL DEFAULT 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+);

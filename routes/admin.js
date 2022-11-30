@@ -50,6 +50,8 @@ router.get("/remove/:id", function (req, res, next) {
         orm.getDeleteFromServiceTime(req, res, action);
     } else if(req.params.id === "Newsletter") {
         orm.getDeleteFromNewsletter(req, res, action);
+    } else if(req.params.id === "OtherDocument") {
+        orm.getDeleteFromOtherDocument(req, res, action);
     } else res.redirect("/");
 });
 
