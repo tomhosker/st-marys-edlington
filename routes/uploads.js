@@ -32,4 +32,14 @@ router.post("/deletefrom/Newsletter", function (req, res, next) {
     uploader.deleteNewsletter(req, res);
 });
 
+// Execute the addition of a new "other" document.
+router.post("/insert2/OtherDocument", function (req, res, next) {
+    uploader.insertNewOtherDocument(req, res);
+});
+
+// Execute the deletion of an "other" document.
+router.post("/deletefrom/Newsletter", function (req, res, next) {
+    uploader.deleteOtherDocument(req, res);
+});
+
 module.exports = router;

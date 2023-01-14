@@ -8,9 +8,11 @@ const RomCal = require("romcal");
 
 // A helper function.
 function recolorElements(className, field, color) {
-    const elements = document.querySelectorAll("."+className);
+    const elements = document.querySelectorAll("." + className);
 
-    elements.forEach(element => { element.style[field] = color; });
+    elements.forEach((element) => {
+        element.style[field] = color;
+    });
 }
 
 // A helper function.
@@ -22,7 +24,7 @@ function convertRawColor(rawColor) {
     else if (rawColor === "WHITE") return "gold";
     else if (rawColor === "GOLD") return "gold";
 
-    throw new Error("Unrecognised liturgical color: "+rawColor);
+    throw new Error("Unrecognised liturgical color: " + rawColor);
 }
 
 // The class in question.
@@ -35,19 +37,17 @@ class ColorChanger {
     getLiturgicalColor() {
         const calendar = RomCal.calendarFor();
         const today = new Date();
-        const todayAtMidnight =
-            new Date(Date.UTC(
-                today.getFullYear(), today.getMonth(), today.getDate()
-            ));
+        const todayAtMidnight = new Date(
+            Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())
+        );
         const moment = todayAtMidnight.toISOString();
         let result;
 
         for (let i = 0; i < calendar.length; i++) {
             if (calendar[i].moment === moment) {
-                result = 
-                    convertRawColor(
-                        calendar[i].data.meta.liturgicalColor.key
-                    );
+                result = convertRawColor(
+                    calendar[i].data.meta.liturgicalColor.key
+                );
                 return result;
             }
         }
@@ -56,9 +56,9 @@ class ColorChanger {
     }
 
     recolorElements(className, field) {
-        const elements = document.querySelectorAll("."+className);
+        const elements = document.querySelectorAll("." + className);
 
-        elements.forEach(element => {
+        elements.forEach((element) => {
             element.style[field] = this.liturgicalColor;
         });
     }

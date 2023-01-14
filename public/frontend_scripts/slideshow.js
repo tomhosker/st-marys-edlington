@@ -54,9 +54,9 @@ class Slideshow {
             localIndex = this.slideIndex % slides.length;
             localNextIndex = (localIndex + 1) % slides.length;
 
-console.log(slides);
-console.log(slides.length);
-console.log(localIndex);
+            console.log(slides);
+            console.log(slides.length);
+            console.log(localIndex);
 
             slides[localIndex].style.display = "none";
             slides[localNextIndex].style.display = "block";

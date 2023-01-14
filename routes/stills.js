@@ -10,7 +10,7 @@ const Finaliser = require("../lib/finaliser.js");
 
 // Constants.
 const CUSTOM_TITLES = {
-    "externallinks": "External Links"
+    externallinks: "External Links",
 };
 
 // Constant global objects.

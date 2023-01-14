@@ -91,7 +91,7 @@ app.use("/stills", stillsRouter);
 app.use("/webmaster", webmasterRouter);
 app.use("/youth", youthRouter);
 app.use("/pilgrimages", pilgrimagesRouter);
-app.use("/other-documents", otherDocsRouter)
+app.use("/other-documents", otherDocsRouter);
 app.use(
     "/profile",
     require("connect-ensure-login").ensureLoggedIn(),
