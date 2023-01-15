@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    helpbox
+        h2 Help
+        p Select a document from the drop-down list, and press ``Submit'' to delete it.
+    h1=title
+
+    p Delete a record?
+
+    if otherDocumentSummaries.length == 0
+        p #[i Nothing to delete.]
+    else
+        form(action=formAction, method="post")
+            p
+                | Select document:
+                select(id="documentID", name="documentID")
+                    for summary in otherDocumentSummaries
+                        option(value=summary.id) #{summary.description}
+            input(type="submit", value="Submit")

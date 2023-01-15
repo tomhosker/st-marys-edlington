@@ -4,7 +4,7 @@
 ### them in package.json.
 
 # Local constants.
-APT_PACKAGES="gnome-terminal postgresql snapd"
+APT_PACKAGES="gnome-terminal postgresql" # Space-separated list.
 
 # Crash on the first failure.
 set -e
@@ -12,6 +12,6 @@ set -e
 # Install APT packages.
 sudo apt install $APT_PACKAGES --yes
 # Install Heroku CLI.
-sudo snap install --classic heroku
+sudo npm install -g heroku
 # Install the browserify command.
-npm install -g browserify
+sudo npm install -g browserify

@@ -160,3 +160,9 @@ INSERT INTO Pilgrimage (
     '01302247910',
     'See <a href="https://www.hallam-lourdes.com/">the Hallam Lourdes website</a> for further information.'
 );
+
+INSERT INTO OtherDocument (
+    name
+) VALUES (
+    'Test'
+);

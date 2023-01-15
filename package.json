@@ -4,7 +4,8 @@
     "private": false,
     "scripts": {
         "start": "node ./bin/www",
-        "devstart": "nodemon ./bin/www"
+        "devstart": "nodemon ./bin/www",
+        "pipeline": "sh run_prettier.sh && sh run_browserify.sh"
     },
     "dependencies": {
         "body-parser": "^1.19.0",
@@ -19,7 +20,7 @@
         "express-session": "^1.16.1",
         "http-errors": "~1.6.3",
         "morgan": "~1.9.1",
-        "passport": "^0.4.0",
+        "passport": "^0.6.0",
         "passport-local": "^1.0.0",
         "pg": "^8.5.1",
         "prettier": "^2.4.1",
