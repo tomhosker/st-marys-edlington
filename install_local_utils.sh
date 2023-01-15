@@ -4,7 +4,7 @@
 ### them in package.json.
 
 # Local constants.
-APT_PACKAGES="postgresql" # Space-separated list.
+APT_PACKAGES="gnome-terminal postgresql" # Space-separated list.
 
 # Crash on the first failure.
 set -e

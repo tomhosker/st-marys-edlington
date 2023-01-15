@@ -52,6 +52,8 @@ router.get("/remove/:id", function (req, res, next) {
     const action = "/uploads/deletefrom/" + req.params.id;
     const orm = new ORM(req, res);
 
+console.log("MAN");
+
     if (req.params.id === "ServiceTime") {
         orm.getDeleteFromServiceTime(req, res, action);
     } else if (req.params.id === "Newsletter") {
