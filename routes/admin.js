@@ -40,7 +40,7 @@ router.get("/add/:id", function (req, res, next) {
         finaliser.protoRender(req, res, "upload2Newsletter", properties);
     } else if (req.params.id === "OtherDocument") {
         properties = {
-            title: 'Add a New "Other" Document',
+            title: "Add a New ``Other'' Document",
             formAction: action,
         };
         finaliser.protoRender(req, res, "upload2OtherDocument", properties);
