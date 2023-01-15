@@ -38,6 +38,12 @@ router.get("/add/:id", function (req, res, next) {
             formAction: action,
         };
         finaliser.protoRender(req, res, "upload2Newsletter", properties);
+    } else if (req.params.id === "OtherDocuments") {
+        properties = {
+            title: 'Add a New "Other" Document',
+            formAction: action,
+        };
+        finaliser.protoRender(req, res, "upload2OtherDocument", properties);
     } else res.redirect("/");
 });
 
