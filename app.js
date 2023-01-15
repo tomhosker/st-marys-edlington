@@ -115,7 +115,6 @@ app.post(
     "/login",
     passport.authenticate("local", { failureRedirect: "/logmein/failure" }),
     function (req, res) {
-console.log("LOGGING IN");
         res.redirect("/logmein/success");
     }
 );
