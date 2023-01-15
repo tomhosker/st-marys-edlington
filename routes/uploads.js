@@ -38,7 +38,7 @@ router.post("/insert2/OtherDocument", function (req, res, next) {
 });
 
 // Execute the deletion of an "other" document.
-router.post("/deletefrom/Newsletter", function (req, res, next) {
+router.post("/deletefrom/OtherDocument", function (req, res, next) {
     uploader.deleteOtherDocument(req, res);
 });
 
