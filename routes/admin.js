@@ -53,11 +53,11 @@ router.get("/remove/:id", function (req, res, next) {
     const orm = new ORM(req, res);
 
     if (req.params.id === "ServiceTime") {
-        orm.getDeleteFromServiceTime(req, res, action);
+        orm.getDeleteFromServiceTime(action);
     } else if (req.params.id === "Newsletter") {
-        orm.getDeleteFromNewsletter(req, res, action);
+        orm.getDeleteFromNewsletter(action);
     } else if (req.params.id === "OtherDocument") {
-        orm.getDeleteFromOtherDocument(req, res, action);
+        orm.getDeleteFromOtherDocument(action);
     } else res.redirect("/");
 });
 
