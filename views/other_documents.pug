@@ -10,11 +10,11 @@ block content
             tr
                 th ID
                 th Name
-                th Date
+                th Publication Date
                 th Link
             for document in otherDocuments
                 tr
                     td #{document.id}
                     td #{document.name}
-                    td #{document.date}
+                    td #{document.publication_date}
                     td [#[a(href=document.link) here]]
