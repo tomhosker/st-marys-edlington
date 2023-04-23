@@ -31,7 +31,7 @@ router.get("/add/:id", function (req, res, next) {
             title: "Add a New Service Time",
             formAction: action,
         };
-        orm.getUpload2ServiceTime(req, res, properties);
+        orm.getUpload2ServiceTime(properties);
     } else if (req.params.id === "Newsletter") {
         properties = {
             title: "Add a New Newsletter",
