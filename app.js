@@ -129,6 +129,10 @@ app.get("/logout", function (req, res) {
 app.use(function (req, res, next) {
     const finaliser = new Finaliser();
 
+    // Log the faulty request.
+    console.log("LOGGING FAULTY REQUEST...");
+    console.log(req);
+
     finaliser.finalise(req, res, "notfound", { title: "Not Found" });
 });
 
@@ -147,8 +151,8 @@ app.listen(app.get("port"), function () {
     console.log("App running at port number: " + app.get("port"));
     console.log(
         "If running locally, navigate to: http://localhost:" +
-            app.get("port") +
-            "/"
+        app.get("port") +
+        "/"
     );
 });
 
