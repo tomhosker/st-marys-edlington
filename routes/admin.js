@@ -26,6 +26,8 @@ router.get("/add/:id", function (req, res, next) {
     const orm = new ORM(req, res);
     let properties;
 
+console.log(action);
+
     if (req.params.id === "ServiceTime") {
         properties = {
             title: "Add a New Service Time",
