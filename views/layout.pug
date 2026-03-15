@@ -1,0 +1,11 @@
+doctype html
+html
+    head
+        title VanillaWeb | #{title}
+        link(rel="stylesheet", href="/stylesheets/style.css")
+    body
+        div.header
+        block content
+        footer
+            br
+            p Accessed: #{footstamp} | #[a(href="/") Home]

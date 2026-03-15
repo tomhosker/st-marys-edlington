@@ -1,0 +1,31 @@
+{
+    "name": "vanilla_web",
+    "version": "1.1.1",
+    "private": false,
+    "scripts": {
+        "devstart": "nodemon ./bin/www",
+        "preinstall_local": "sh install_3rd_party",
+        "prettier": "npx prettier --write .",
+        "start": "node ./bin/www",
+        "test": "nyc mocha"
+    },
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cookie-parser": "~1.4.4",
+        "debug": "~2.6.9",
+        "dotenv": "^8.2.0",
+        "expect": "^27.0.6",
+        "express": "^4.22.1",
+        "express-favicon": "^2.0.1",
+        "express-session": "^1.16.1",
+        "http-errors": "~1.6.3",
+        "mocha": "^11.7.5",
+        "morgan": "^1.10.1",
+        "nyc": "^15.1.0",
+        "prettier": "^2.7.1",
+        "pug": "^3.0.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.15"
+    }
+}
