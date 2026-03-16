@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h1=title
+
+    p Add a new record?
+    form(action=formAction, method="post")
+        p
+            | Name:
+            input(type="text", name="name", required)
+        p
+            | Link:
+            input(type="text", name="link", required)
+        input(type="submit", value="Submit")

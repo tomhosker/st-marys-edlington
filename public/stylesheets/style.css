@@ -23,21 +23,6 @@
     src: url("fonts/fraktur.ttf");
 }
 
-body {
-    font-family: computerModern, serif;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.header {
-    width: 100%;
-    height: 200px;
-    background-color: black;
-    background-image: url("logo.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
 a:link {
     text-decoration: none;
     color: blue;
@@ -53,20 +38,200 @@ a:visited {
     color: blue;
 }
 
+bbox {
+    display: block;
+    width: 100%;
+    float: left;
+    margin-bottom: 1em;
+}
+
+body {
+    font-family: computerModern, serif;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.header {
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    background-image: url("banner.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
+}
+
+button.liturgical-background {
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+    cursor: pointer;
+    background-color: white;
+}
+
+div.helpbox {
+    float: right;
+    width: 25%;
+    border: 5px solid black;
+    margin: 20px auto 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    border-color: black;
+}
+
+div.pilgrimage-image-box {
+    float: right;
+    width: 40%;
+}
+
+div.liturgical-border {
+    border-top: 5px solid;
+    margin-top: 20px;
+    border-bottom: 5px solid;
+    margin-bottom: 20px;
+    border-color: white;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    font-style: italic;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+/* Slideshow stuff. */
+.slideshows-container {
+    overflow: hidden;
+}
+.slideshow-container {
+    width: 60%;
+    height: 100%;
+    float: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+.slideshow {
+    width: 100%;
+}
+.mySlides {
+    display: none;
+}
+.mySlidesBatch2 {
+    display: none;
+}
+.fade {
+    width: 100%;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+helpbox {
+    float: right;
+    width: 25%;
+    border: 5px solid black;
+    margin: 20px auto 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    border-color: orange;
+}
+
+img {
+    vertical-align: middle;
+}
+
+img.pilgrimage {
+    width: 100%;
+}
+
+sidebox {
+    float: right;
+    width: 25%;
+    border: 5px solid black;
+    margin: 20px auto 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+}
+
+.liturgical-border {
+    border-color: white;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
+}
+
+.homepage {
+    width: 65%;
+}
+
+.tabs {
+    border: none;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+td.tabs {
+    border: none;
+    padding: none;
+    text-align: center;
 }
 
 tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-td,
-th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+tr.tabs {
+    border: none;
+    padding: none;
 }
 
 form {
@@ -76,14 +241,4 @@ form {
 textarea {
     width: 500px;
     height: 100px;
-}
-
-div.helpbox {
-    float: right;
-    width: 400px;
-    border: 2px solid orange;
-    margin: 20px auto 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 10px;
 }

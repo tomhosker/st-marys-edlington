@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    h1 #{title}
+
+    if newsletters.length == 0
+        p #[i None as yet.]
+    else
+        table
+            tr
+                th ID
+                th Week beginning
+                th Link
+            for newsletter in newsletters
+                tr
+                    td #{newsletter.id}
+                    td #{newsletter.weekBeginning}
+                    td [#[a(href=newsletter.link) here]]

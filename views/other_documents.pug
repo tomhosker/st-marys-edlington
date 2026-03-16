@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    h1 #{title}
+
+    if otherDocuments.length == 0
+        p #[i None as yet.]
+    else
+        table
+            tr
+                th ID
+                th Name
+                th Publication Date
+                th Link
+            for document in otherDocuments
+                tr
+                    td #{document.id}
+                    td #{document.name}
+                    td #{document.publication_date}
+                    td [#[a(href=document.link) here]]

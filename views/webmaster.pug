@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    h1 #{title}
+
+    if webmasterAppointed
+        table
+            tr
+                th Category
+                th Value
+            tr
+                td Full name
+                td #{fullName}
+            tr
+                td Known as
+                td #{shortName}
+            tr
+                td Email
+                td #{email}
+            if landline
+                tr
+                    td Landline
+                    td #{landline}
+            if mobile
+                tr
+                    td Mobile
+                    td #{mobile}
+    else
+        p #[i Sorry, but it doesn't look like a webmaster has been appointed yet.]

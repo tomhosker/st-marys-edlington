@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    h1 #{title}
+
+    p You are now logged in as #[b #{username}].
+
+    p This link will take you to #[a(href="/admin") #[b the admin area]]. (Or you can use the link on the home page. Both take you to the same place.)

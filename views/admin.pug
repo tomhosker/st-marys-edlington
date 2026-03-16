@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    helpbox
+        h2 Help
+        ul
+            li This page allows you to view and alter the database underlying this website.
+            li Browse the pages listed opposite to view the raw data, or to add or delete records.
+            li If you get stuck, feel free to contact #[a(href="/webmaster") the webmaster] for help.
+
+    h1 #{title}
+
+    ul
+        li #[a(href="/admin/add/ServiceTime") Add a new service time.]
+        ul
+            li #[a(href="/admin/remove/ServiceTime") Remove a service time.]
+        li #[a(href="/admin/add/Newsletter") Add a new newsletter.]
+        ul
+            li #[a(href="/admin/remove/Newsletter") Remove a newsletter.]
+        li #[a(href="/admin/add/OtherDocument") Add a miscellaneous document.]
+        ul
+            li #[a(href="/admin/remove/OtherDocument") Remove one of the miscellaneous documents.]
+        li #[a(href="/asis") View the tables in this site's database ``as is''.]

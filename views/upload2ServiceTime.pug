@@ -1,0 +1,54 @@
+extends layout
+
+block content
+    helpbox
+        h2 Help
+        p Fill in the form opposite and press ``Submit'' to add a new service time.
+        ol
+            li The #[i service type] refers to the sort of service to take place, e.g. `Mass'.
+            li Make sure the #[i service time] is set to AM or PM, as appropriate.
+            li Decide whether to add a #[i service weekday] or a #[i service date]:
+            ul
+                li If the service in question is to #[b repeat every week], specify a service weekday.
+                li If, on the other hand, the service in question is a #[b one-off], specify a service date.
+            li If there is anything else about the service that potential attendees might need to know, put this in the #[i remarks] box. If not, feel free to leave this box blank.
+
+    h1=title
+
+    p Add a new record?
+    form(action=formAction, method="post")
+        p
+            | Service type:
+            input(type="text", name="type", required)
+        p
+            | Service time:
+            input(type="time", name="time", required)
+        p
+            | Service weekday:
+            select(id="weekday", name="weekday")
+                option(value="-1") N/A
+                option(value="0") Sunday
+                option(value="1") Monday
+                option(value="2") Tueday
+                option(value="3") Wednesday
+                option(value="4") Thurday
+                option(value="5") Friday
+                option(value="6") Saturday
+        p
+            | Service date:
+            input(type="date", name="date")
+        p
+            | Service location:
+            select(id="location", name="location")
+                for row in data.realWorldAddresses.rows
+                    option(value=row[0]) #{row[1]}
+        p
+            | Tick here if the service includes a children's liturgy.
+            input(type="checkbox", name="has_childrens_liturgy")
+        p
+            | Special information about the children's liturgy (if applicable):
+            input(type="text", name="childrens_liturgy_remarks")
+        p
+            | Remarks:
+            input(type="text", name="remarks")
+        input(type="submit", value="Submit")

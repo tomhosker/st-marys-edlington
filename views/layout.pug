@@ -1,11 +1,35 @@
 doctype html
 html
     head
-        title VanillaWeb | #{title}
+        title #{title}
         link(rel="stylesheet", href="/stylesheets/style.css")
     body
-        div.header
-        block content
+        bbox
+            div.header
+            div.liturgical-border
+                table.tabs
+                    tr
+                        td.tabs #[a(href="/") #[button.liturgical-background Home]]
+                        td.tabs #[a(href="/youth") #[button.liturgical-background Youth]]
+                        td.tabs #[a(href=mostRecentNewsletterURL) #[button.liturgical-background Newsletter]]
+                        td.tabs
+                            div.dropdown
+                                button.liturgical-background More
+                                div.dropdown-content
+                                    a(href="/gallery") Gallery
+                                    a(href="/pilgrimages") Pilgrimages
+                                    a(href="http://www.liturgyoffice.org.uk/Calendar/") Calendar
+                                    a(href="/newsletters") Older Newsletters
+                                    a(href="/other-documents") Other Documents
+            block content
         footer
             br
-            p Accessed: #{footstamp} | #[a(href="/") Home]
+            p #[a(href="/") Home] | 
+                if loggedIn
+                    | #[a(href="/logout") Log out]
+                else
+                    | #[a(href="/logmein") Log in]
+    script(
+        type="text/javascript",
+        src="/frontend_scripts/browserified/liturgical_colours.js"
+    )

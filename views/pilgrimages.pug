@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h1 #{title}
+
+    div.pilgrimage-image-box
+        img.pilgrimage(src="/images/lourdes.jpg")
+
+    if pilgrimages.length == 0
+        p #[i No pilgrimages are being organised at the moment.]
+
+    for pilgrimage in pilgrimages
+        h2 #{pilgrimage.title}
+        if pilgrimage.start && pilgrimage.end
+            p #[i When] &nbsp; #{pilgrimage.start} &mdash; #{pilgrimage.end}
+        if pilgrimage.email
+            p #[i Email] &nbsp; #{pilgrimage.email}
+        if pilgrimage.telephone
+            p #[i Telephone] &nbsp; #{pilgrimage.telephone}
+        if pilgrimage.otherText
+            p !{pilgrimage.otherText}

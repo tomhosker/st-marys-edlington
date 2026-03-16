@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    helpbox
+        h2 Help
+        p #[i You can also check out the #[a(href="/videos/how_to_upload_a_new_newsletter.mp4") video guide].]
+        ol
+            li To add a new newsletter, you will need two things:
+            ul
+                li The #[i week beginning] for the newsletter in question, and
+                li A #[i link] to where it's hosted.
+            li To generate such a link, you'll first need to upload the newsletter file to a #[b host]:
+            ul
+                li You are free to use any hosting service you like. If you're unsure, #[a(href="https://drive.google.com") Google Drive], #[a(href="https://www.dropbox.com") Dropbox] and #[a(href="https://mega.io/") Mega] are all great options.
+                li Once you've uploaded the file, generate a link, and then paste it into the form opposite.
+            li If you get stuck with the above, feel free to contact #[a(href="/webmaster") the webmaster] for help.
+
+    h1=title
+
+    p Add a new record?
+    form(action=formAction, method="post")
+        p
+            | Week beginning:
+            input(type="date", name="weekBeginning", required)
+        p
+            | Link:
+            input(type="text", name="link", required)
+        input(type="submit", value="Submit")

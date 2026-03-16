@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h1 #{title}
+
+    p There follows a #[b list of raw tables] from this website's database:
+    ul
+        li #[a(href="/asis/UserLoginDetails") UserLoginDetails]
+        li #[a(href="/asis/RealWorldAddress") RealWorldAddress]
+        li #[a(href="/asis/Contact") Contact]
+        li #[a(href="/asis/ServiceTime") ServiceTime]
+        li #[a(href="/asis/ParishRole") ParishRole]
+        li #[a(href="/asis/Newsletter") Newsletter]
+        li #[a(href="/asis/Pilgrimage") Pilgrimage]

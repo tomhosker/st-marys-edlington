@@ -1,3 +1,25 @@
+/************************
+ * SET UP LOG IN SYSTEM *
+ ***********************/
+
+// Login imports.
+const crypto = require("crypto");
+const passport = require("passport");
+const Strategy = require("passport-local").Strategy;
+const connectEnsureLogIn = require("connect-ensure-login");
+// Login local imports.
+const signingin = require("./lib/signingin");
+
+// Configure the local strategy for use by Passport.
+passport.use(new Strategy(signingin.strategyFunc));
+// Configure Passport authenticated session persistence.
+passport.serializeUser(signingin.serializer);
+passport.deserializeUser(signingin.deserializer);
+
+/**************************
+ * SET UP EVERYTHING ELSE *
+ *************************/
+
 // Imports.
 const createError = require("http-errors");
 const express = require("express");
@@ -8,11 +30,16 @@ const favicon = require("express-favicon");
 const dotenv = require("dotenv").config();
 
 // Local imports.
-const indexRouter = require("./routes/index");
+const indexRouter = require("./routes/index.js");
+const loginRouter = require("./routes/logmein.js");
+const profileRouter = require("./routes/profile.js");
+const asIsRouter = require("./routes/asis.js");
+const writeRouter = require("./routes/write.js");
+const adminRouter = require("./routes/admin.js");
 
 // Error codes.
-const notFound = 404;
-const internalServerError = 500;
+const NOT_FOUND = 404;
+const INTERNAL_SERVER_ERROR = 500;
 
 // Let's get cracking.
 const app = express();
@@ -36,6 +63,11 @@ app.use(
     })
 );
 
+// Initialise Passport and restore authentication state, if any, from the
+// session.
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Initialise some other resources.
 app.use(logger("dev"));
 app.use(express.json());
@@ -46,24 +78,47 @@ app.use(favicon(__dirname + "/public/favicon.ico"));
 
 // ROUTES.
 app.use("/", indexRouter);
+app.use("/logmein", loginRouter);
+// Protected routes.
+app.use("/profile", connectEnsureLogIn.ensureLoggedIn(), profileRouter);
+app.use("/asis", connectEnsureLogIn.ensureLoggedIn(), asIsRouter);
+app.use("/write", connectEnsureLogIn.ensureLoggedIn(), writeRouter);
+app.get("/login", (_, res) => res.redirect("/logmein"));
+app.use("/admin", connectEnsureLogIn.ensureLoggedIn(), adminRouter);
+app.post(
+    "/login",
+    passport.authenticate(
+        "local",
+        {
+            failureRedirect: "/logmein/failure",
+            successRedirect: "/logmein/success"
+        }
+    )
+);
+app.get("/logout", (req, res) => {
+    req.logout((err) => {
+        if (err) return next(err);
+        res.redirect("/");
+    });
+});
 
 // Catch 404 and forward to error handler.
-app.use(function (req, res, next) {
-    next(createError(notFound));
+app.use((req, res, next) => {
+    next(createError(NOT_FOUND));
 });
 
 // Error handler.
-app.use(function (err, req, res, next) {
+app.use((err, req, res) => {
     // Set locals, only providing error in development.
     res.locals.message = err.message;
     res.locals.error = req.app.get("env") === "development" ? err : {};
     // Render the error page.
-    res.status(err.status || internalServerError);
+    res.status(err.status || INTERNAL_SERVER_ERROR);
     res.render("error");
 });
 
 // Listen, and tell the programmer where to find the website.
-app.listen(app.get("port"), function () {
+app.listen(app.get("port"), () => {
     console.log("App running at port number: " + app.get("port"));
     console.log(
         "If running locally, navigate to: http://localhost:" +

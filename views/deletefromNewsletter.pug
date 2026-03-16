@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    helpbox
+        h2 Help
+        p Select a newsletter from the drop-down list, and press ``Submit'' to delete it.
+    h1=title
+
+    p Delete a record?
+
+    if newsletterSummaries.length == 0
+        p #[i Nothing to delete.]
+    else
+        form(action=formAction, method="post")
+            p
+                | Select newsletter:
+                select(id="newsletterID", name="newsletterID")
+                    for summary in newsletterSummaries
+                        option(value=summary.id) #{summary.description}
+            input(type="submit", value="Submit")

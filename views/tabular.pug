@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    h1=title
+
+    else
+        p #[i This table contains no data as yet.]
+    if data
+        table
+            tr
+                for column in data.columns
+                    th !{column}
+            for row in data.rows
+                tr
+                    for item in row
+                        if item
+                            td !{item}
+                        else
+                            td #[i Nil]
+
+    if note
+        p !{note}

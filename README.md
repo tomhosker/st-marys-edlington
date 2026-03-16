@@ -1,3 +1,3 @@
-# Vanilla Web
+# St Mary's Roman Catholic Church Website
 
-The code is this repository defines a **template web server**  which uses NodeJS as its core technology.
+The code is this repository describes the server for the St Mary's Roman Catholic Church website.
