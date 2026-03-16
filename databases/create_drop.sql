@@ -1,7 +1,7 @@
 -- Run me using:
 --   heroku pg:psql --app [APP_CODE] < [PATH_TO_SCRIPT].sql
 
-DROP TABLE IF EXISTS ChildrensLiturgy;
+DROP TABLE IF EXISTS OtherDocument;
 DROP TABLE IF EXISTS Pilgrimage;
 DROP TABLE IF EXISTS Newsletter;
 DROP TABLE IF EXISTS ParishRole;
@@ -24,7 +24,8 @@ CREATE TABLE RealWorldAddress (
     road_name VARCHAR(99),
     town VARCHAR(99),
     post_town VARCHAR(99),
-    postcode VARCHAR(99)
+    postcode VARCHAR(99),
+    is_main BOOLEAN NOT NULL DEFAULT false
 );
 
 CREATE TABLE Contact (

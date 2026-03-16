@@ -21,7 +21,6 @@ passport.deserializeUser(signingin.deserializer);
  *************************/
 
 // Imports.
-const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
@@ -30,15 +29,16 @@ const favicon = require("express-favicon");
 const dotenv = require("dotenv").config();
 
 // Local imports.
+const Finaliser = require("./lib/finaliser.js");
 const indexRouter = require("./routes/index.js");
 const loginRouter = require("./routes/logmein.js");
 const profileRouter = require("./routes/profile.js");
 const asIsRouter = require("./routes/asis.js");
 const writeRouter = require("./routes/write.js");
 const adminRouter = require("./routes/admin.js");
+const youthRouter = require("./routes/youth.js");
 
 // Error codes.
-const NOT_FOUND = 404;
 const INTERNAL_SERVER_ERROR = 500;
 
 // Let's get cracking.
@@ -79,6 +79,7 @@ app.use(favicon(__dirname + "/public/favicon.ico"));
 // ROUTES.
 app.use("/", indexRouter);
 app.use("/logmein", loginRouter);
+app.use("/youth", youthRouter);
 // Protected routes.
 app.use("/profile", connectEnsureLogIn.ensureLoggedIn(), profileRouter);
 app.use("/asis", connectEnsureLogIn.ensureLoggedIn(), asIsRouter);
@@ -104,7 +105,9 @@ app.get("/logout", (req, res) => {
 
 // Catch 404 and forward to error handler.
 app.use((req, res, next) => {
-    next(createError(NOT_FOUND));
+    const finaliser = new Finaliser();
+
+    finaliser.protoRender(req, res, "notfound", { title: "Not Found" });
 });
 
 // Error handler.

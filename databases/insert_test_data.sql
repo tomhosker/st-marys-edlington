@@ -21,25 +21,38 @@ INSERT INTO RealWorldAddress (
     road_name,
     town,
     post_town,
-    postcode
+    postcode,
+    is_main
 ) VALUES (
     'st-marys-edlington',
     'St Mary''s Edlington',
-    'St Mary''s Catholic Church',
+    'St Mary''s Roman Catholic Church',
     null,
     'Bungalow Road',
     'Edlington',
     'Doncaster',
-    'DN12 1DL'
+    'DN12 1DL',
+    true
 ), (
     'sacred-heart-balby',
     'Sacred Heart Balby',
-    'Sacred Heart Catholic Church',
+    'Sacred Heart Roman Catholic Church',
     44,
     'Warmsworth Road',
     'Balby',
     'Doncaster',
-    'DN4 0RR'
+    'DN4 0RR',
+    false
+), (
+    'st-mary-magdalene-maltby',
+    'St Mary Magdalene Maltby',
+    'St Mary Magdalene Roman Catholic Church',
+    null,
+    'Morrell Street',
+    'Maltby',
+    'Rotherham',
+    'S66 7LH',
+    false
 );
 
 INSERT INTO Contact (
@@ -106,6 +119,19 @@ INSERT INTO ServiceTime (
     'Mass',
     true,
     'Only on the first and third Sundays of each month.',
+    null
+), (
+    3,
+    0,
+    null,
+    null,
+    null,
+    11,
+    0,
+    'st-mary-magdalene-maltby',
+    'Mass',
+    true,
+    null,
     null
 );
 

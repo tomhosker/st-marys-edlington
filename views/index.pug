@@ -1,11 +1,5 @@
 extends layout
 
-mixin to-two-digit(number)
-    if number > 9
-        | #{number}
-    else
-        | 0#{number}
-
 block content
     sidebox.liturgical-border
         h2 Parish Priest
@@ -43,9 +37,14 @@ block content
             tr
                 td=service.service_type
                 td
-                    +to-two-digit(service.hours)
-                    |:
-                    +to-two-digit(service.minutes)
+                    +to-service-time(
+                        service.weekday,
+                        service.day,
+                        service.month,
+                        service.year,
+                        service.hours,
+                        service.minutes
+                    )
                 td=service.location_name
 
     div.slideshows-container

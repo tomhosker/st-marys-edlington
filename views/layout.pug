@@ -1,3 +1,72 @@
+mixin to-two-digit(number)
+    if number > 9
+        | #{number}
+    else
+        | 0#{number}
+
+mixin to-time(hours, minutes)
+    +to-two-digit(hours)
+    |:
+    +to-two-digit(minutes)
+
+mixin weekday-numeral-to-name(numeral)
+    if numeral == 0
+        | Sunday
+    else if numeral == 1
+        | Monday
+    else if numeral == 2
+        | Tuesday
+    else if numeral == 3
+        | Wednesday
+    else if numeral == 4
+        | Thursday
+    else if numeral == 5
+        | Friday
+    else if numeral == 6
+        | Saturday
+    else
+        | BAD WEEKDAY NUMERAL
+
+mixin month-numeral-to-name(numeral)
+    if numeral == 1
+        | Jan
+    else if numeral == 2
+        | Feb
+    else if numeral == 3
+        | Mar
+    else if numeral == 4
+        | Apr
+    else if numeral == 5
+        | May
+    else if numeral == 6
+        | Jun
+    else if numeral == 7
+        | Jul
+    else if numeral == 8
+        | Aug
+    else if numeral == 9
+        | Sep
+    else if numeral == 10
+        | Oct
+    else if numeral == 11
+        | Nov
+    else if numeral == 12
+        | Dec
+    else
+        | BAD MONTH NUMERAL
+
+mixin to-service-time(weekday, day, month, year, hours, minutes)
+    if weekday || weekday == 0
+        | Every 
+        +weekday-numeral-to-name(weekday)
+        |  at 
+        +to-time(hours, minutes)
+    else
+        +to-two-digit(day)
+        |  
+        +month-numeral-to-name(month)
+        |  #{year}
+
 doctype html
 html
     head
@@ -11,7 +80,7 @@ html
                     tr
                         td.tabs #[a(href="/") #[button.liturgical-background Home]]
                         td.tabs #[a(href="/youth") #[button.liturgical-background Youth]]
-                        td.tabs #[a(href=mostRecentNewsletterURL) #[button.liturgical-background Newsletter]]
+                        td.tabs #[a(href=globalData.mostRecentNewsletterLink) #[button.liturgical-background Newsletter]]
                         td.tabs
                             div.dropdown
                                 button.liturgical-background More

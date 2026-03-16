@@ -11,11 +11,19 @@ block content
             th Time
             th Location
             th Additional Information
-        for service in childrensLiturgies
+        for service in data.childrensLiturgies
             tr
                 td=service.service_type
-                td=service.time
-                td=service.locationname
+                td
+                    +to-service-time(
+                        service.weekday,
+                        service.day,
+                        service.month,
+                        service.year,
+                        service.hours,
+                        service.minutes
+                    )
+                td=service.location_name
                 if service.childrens_liturgy_remarks
                     td !{service.childrens_liturgy_remarks}
                 else
