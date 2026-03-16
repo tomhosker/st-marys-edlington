@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    h1 #{title}
+
+    ul
+        for tableName in tableNames
+            li #[a(href="/asis/"+tableName) #{tableName}]

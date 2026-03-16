@@ -6,12 +6,24 @@ Returns a table from the database, pretty much as is.
 const express = require("express");
 
 // Local imports.
+const { getRetriever } = require("../lib/retriever.js");
 const AsisORM = require("../lib/orm/asis_orm.js");
 const Finaliser = require("../lib/finaliser.js");
 
 // Constants.
 const router = express.Router();
 const finaliser = new Finaliser();
+
+// Return the page for a list of all tables.
+router.get("/", (req, res) => {
+    const retriever = getRetriever();
+    let properties;
+
+    retriever.fetchAllTableNames().then((tableNames) => {
+        properties = {title: "List of Tables", tableNames: tableNames};
+        finaliser.protoRender(req, res, "asis_list", properties);
+    });
+});
 
 // Return the page for a given table.
 router.get("/:id", (req, res) => {
