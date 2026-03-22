@@ -37,6 +37,7 @@ const asIsRouter = require("./routes/asis.js");
 const writeRouter = require("./routes/write.js");
 const adminRouter = require("./routes/admin.js");
 const youthRouter = require("./routes/youth.js");
+const pilgrimagesRouter = require("./routes/pilgrimages.js");
 
 // Error codes.
 const INTERNAL_SERVER_ERROR = 500;
@@ -80,6 +81,7 @@ app.use(favicon(__dirname + "/public/favicon.ico"));
 app.use("/", indexRouter);
 app.use("/logmein", loginRouter);
 app.use("/youth", youthRouter);
+app.use("/pilgrimages", pilgrimagesRouter);
 // Protected routes.
 app.use("/profile", connectEnsureLogIn.ensureLoggedIn(), profileRouter);
 app.use("/asis", connectEnsureLogIn.ensureLoggedIn(), asIsRouter);

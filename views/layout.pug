@@ -55,17 +55,25 @@ mixin month-numeral-to-name(numeral)
     else
         | BAD MONTH NUMERAL
 
+mixin to-day-month(day, month)
+    +to-two-digit(day)
+    | 
+    +month-numeral-to-name(month)
+
+mixin to-full-date(day, month, year)
+    +to-day-month(day, month)
+    | 
+    | #{year}
+
 mixin to-service-time(weekday, day, month, year, hours, minutes)
     if weekday || weekday == 0
         | Every 
         +weekday-numeral-to-name(weekday)
-        |  at 
-        +to-time(hours, minutes)
     else
-        +to-two-digit(day)
-        |  
-        +month-numeral-to-name(month)
-        |  #{year}
+        +to-full-date(day, month, year)
+    | 
+    | at 
+    +to-time(hours, minutes)
 
 doctype html
 html
@@ -79,7 +87,11 @@ html
                 table.tabs
                     tr
                         td.tabs #[a(href="/") #[button.liturgical-background Home]]
-                        td.tabs #[a(href="/youth") #[button.liturgical-background Youth]]
+                        td.tabs
+                            div.dropdown
+                                button.liturgical-background Youth
+                                div.dropdown-content
+                                    a(href="/youth/childrens-liturgies") Children's Liturgies
                         td.tabs #[a(href=globalData.mostRecentNewsletterLink) #[button.liturgical-background Newsletter]]
                         td.tabs
                             div.dropdown

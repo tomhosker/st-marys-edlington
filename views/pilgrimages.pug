@@ -6,16 +6,19 @@ block content
     div.pilgrimage-image-box
         img.pilgrimage(src="/images/lourdes.jpg")
 
-    if pilgrimages.length == 0
+    if data.pilgrimages.length == 0
         p #[i No pilgrimages are being organised at the moment.]
 
-    for pilgrimage in pilgrimages
-        h2 #{pilgrimage.title}
-        if pilgrimage.start && pilgrimage.end
-            p #[i When] &nbsp; #{pilgrimage.start} &mdash; #{pilgrimage.end}
+    for pilgrimage in data.pilgrimages
+        h2 #{pilgrimage.destination} #{pilgrimage.end_year}
+        p
+            | #[i When] &nbsp;
+            +to-day-month(pilgrimage.start_day, pilgrimage.start_month)
+            |  &mdash; 
+            +to-full-date(pilgrimage.end_day, pilgrimage.end_month, pilgrimage.end_year)
         if pilgrimage.email
             p #[i Email] &nbsp; #{pilgrimage.email}
         if pilgrimage.telephone
             p #[i Telephone] &nbsp; #{pilgrimage.telephone}
-        if pilgrimage.otherText
-            p !{pilgrimage.otherText}
+        if pilgrimage.other_text
+            p !{pilgrimage.other_text}
