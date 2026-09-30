@@ -14,18 +14,18 @@ const router = express.Router();
 const finaliser = new Finaliser();
 
 // GET home page.
-router.get("/childrens-liturgies", (req, res) => {
+router.get("/childrens-liturgies", async (req, res, next) => {
     const orm = new ChildrensLiturgiesORM();
-    let properties;
 
-    orm.gatherDataAsync().then((data) => {
-        properties = {
+    try {
+        const data = await orm.gatherDataAsync();
+        await finaliser.protoRender(req, res, "childrens-liturgies", {
             title: "Children's Liturgies",
-            data: data
-        };
-
-        finaliser.protoRender(req, res, "childrens-liturgies", properties);
-    });
+            data
+        });
+    } catch (error) {
+        next(error);
+    }
 });
 
 module.exports = router;

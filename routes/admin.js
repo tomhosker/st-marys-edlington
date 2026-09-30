@@ -13,8 +13,12 @@ const finaliser = new Finaliser();
 const router = express.Router();
 
 // GET the admin area page.
-router.get("/", (req, res) => {
-    finaliser.protoRender(req, res, "admin", {title: "Admin Area"});
+router.get("/", async (req, res, next) => {
+    try {
+        await finaliser.protoRender(req, res, "admin", { title: "Admin Area" });
+    } catch (error) {
+        next(error);
+    }
 });
 
 module.exports = router;

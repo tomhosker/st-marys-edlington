@@ -15,30 +15,41 @@ const router = express.Router();
 const finaliser = new Finaliser();
 
 // Return the page for a list of all tables.
-router.get("/", (req, res) => {
+router.get("/", async (req, res, next) => {
     const retriever = getRetriever();
-    let properties;
 
-    retriever.fetchAllTableNames().then((tableNames) => {
-        properties = {title: "List of Tables", tableNames: tableNames};
-        finaliser.protoRender(req, res, "asis_list", properties);
-    });
+    try {
+        const tableNames = await retriever.fetchAllTableNames();
+        await finaliser.protoRender(req, res, "asis_list", {
+            title: "List of Tables",
+            tableNames
+        });
+    } catch (error) {
+        next(error);
+    } finally {
+        await retriever.close();
+    }
 });
 
 // Return the page for a given table.
-router.get("/:id", (req, res) => {
+router.get("/:id", async (req, res, next) => {
     const tableName = req.params.id;
-    const orm = new AsisORM(tableName);
-    let properties;
 
-    orm.gatherDataAsync().then((data) => {
+    try {
+        const orm = new AsisORM(tableName);
+        const data = await orm.gatherDataAsync();
+
         if (data === null) {
-            res.send(`No table with name: ${tableName}`);
+            res.status(404).send(`No table with name: ${tableName}`);
         } else {
-            properties = {title: tableName, data: data};
-            finaliser.protoRender(req, res, "asis", properties);
+            await finaliser.protoRender(req, res, "asis", {
+                title: tableName,
+                data
+            });
         }
-    });
+    } catch (error) {
+        next(error);
+    }
 });
 
 module.exports = router;

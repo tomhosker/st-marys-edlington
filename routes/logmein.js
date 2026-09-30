@@ -13,27 +13,38 @@ const router = express.Router();
 const finaliser = new Finaliser();
 
 // Return the login page.
-router.get("/", (req, res) => {
-    finaliser.protoRender(req, res, "logmein", { title: "Log In" });
+router.get("/", async (req, res, next) => {
+    try {
+        await finaliser.protoRender(req, res, "logmein", { title: "Log In" });
+    } catch (error) {
+        next(error);
+    }
 });
 
 // Return the page telling the user that he logged in successfully.
-router.get("/success", (req, res) => {
+router.get("/success", async (req, res, next) => {
     let properties;
 
     if (req.isAuthenticated()) {
-        properties = {title: "Success", username: req.user.username};
-        finaliser.protoRender(req, res, "loginsuccess", properties);
-    }
-    else res.redirect("/login");
+        properties = { title: "Success", username: req.user.username };
+        try {
+            await finaliser.protoRender(req, res, "loginsuccess", properties);
+        } catch (error) {
+            next(error);
+        }
+    } else res.redirect("/login");
 });
 
 // Redirect the user to the login page, with a message saying that his
 // previous attempt failed.
-router.get("/failure", (req, res) => {
-    const properties = {title: "Log In", previousFailure: true};
+router.get("/failure", async (req, res, next) => {
+    const properties = { title: "Log In", previousFailure: true };
 
-    finaliser.protoRender(req, res, "logmein", properties);
+    try {
+        await finaliser.protoRender(req, res, "logmein", properties);
+    } catch (error) {
+        next(error);
+    }
 });
 
 module.exports = router;

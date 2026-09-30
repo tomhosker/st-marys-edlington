@@ -14,18 +14,18 @@ const router = express.Router();
 const finaliser = new Finaliser();
 
 // GET home page.
-router.get("/", (req, res) => {
+router.get("/", async (req, res, next) => {
     const orm = new IndexORM();
-    let properties;
 
-    orm.gatherDataAsync().then((data) => {
-        properties = {
+    try {
+        const data = await orm.gatherDataAsync();
+        await finaliser.protoRender(req, res, "index", {
             title: "Welcome",
-            data: data
-        };
-
-        finaliser.protoRender(req, res, "index", properties);
-    });
+            data
+        });
+    } catch (error) {
+        next(error);
+    }
 });
 
 module.exports = router;

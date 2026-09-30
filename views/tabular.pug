@@ -3,8 +3,6 @@ extends layout
 block content
     h1=title
 
-    else
-        p #[i This table contains no data as yet.]
     if data
         table
             tr
@@ -17,6 +15,8 @@ block content
                             td !{item}
                         else
                             td #[i Nil]
+    else
+        p #[i This table contains no data as yet.]
 
     if note
         p !{note}

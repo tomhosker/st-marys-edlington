@@ -13,13 +13,17 @@ const router = express.Router();
 const finaliser = new Finaliser();
 
 // Return the home page.
-router.get("/", (req, res) => {
+router.get("/", async (req, res, next) => {
     const theTitle = `User: ${req.user.username}`;
 
-    finaliser.protoRender(req, res, "profile", {
-        title: theTitle,
-        user: req.user,
-    });
+    try {
+        await finaliser.protoRender(req, res, "profile", {
+            title: theTitle,
+            user: req.user
+        });
+    } catch (error) {
+        next(error);
+    }
 });
 
 // Exports.

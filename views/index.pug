@@ -1,69 +1,113 @@
 extends layout
 
 block content
-    sidebox.liturgical-border
-        h2 Parish Priest
-        p #[b #{data.parishPriest.full_name}]
-            br
-            | #[i Presbytery] &nbsp; #{data.parishPriest.landline}
-            br
-            | #[i Mobile] &nbsp; #{data.parishPriest.mobile}
-            br
-            | #[i Email] &nbsp; #{data.parishPriest.email}
-            br
-            | #[i Post] &nbsp; #{data.parishPriest.address_name}
+    section.hero
+        div.hero__image(role="img", aria-label="The exterior of St Mary's Church in Edlington")
+        div.hero__shade
+        div.hero__content
+            p.eyebrow Welcome to
+            h1 St Mary's Edlington
+            p.hero__lead A Catholic parish where faith is celebrated, community is cherished, and everyone is welcome.
+            div.hero__actions
+                a.button.button--primary(href="#service-times") View service times
+                if globalData.mostRecentNewsletterLink
+                    a.button.button--ghost(href=globalData.mostRecentNewsletterLink) Read the newsletter
 
-        h2 Locations
-        for location in data.locations
-            p #[b #{location.house_name}]
-                br
-                | #{location.house_number} #{location.road_name}
-                br
-                | #{location.town}
-                br
-                | #{location.post_town}
-                br
-                | #{location.postcode}
-                br
+    section.intro.section-shell
+        div.intro__heading
+            p.eyebrow Our parish
+            h2 A place to belong
+        div.intro__copy
+            p We are a community in the Doncaster area, gathering to worship, receive the sacraments, share the Gospel, and support one another in following Jesus Christ.
+            p Our church services are open to all. Whether you are a familiar face, returning after time away, or visiting for the first time, you are warmly invited.
 
-    h1 Service Times
+    section#service-times.services-section
+        div.section-shell
+            div.section-heading
+                div
+                    p.eyebrow Worship with us
+                    h2 Mass & service times
+                p.section-heading__note Times can occasionally change. Please check the latest newsletter for seasonal updates.
 
-    table.homepage
-        tr
-            th Service
-            th Time
-            th Location
-        for service in data.serviceTimes
-            tr
-                td=service.service_type
-                td
-                    +to-service-time(
-                        service.weekday,
-                        service.day,
-                        service.month,
-                        service.year,
-                        service.hours,
-                        service.minutes
-                    )
-                td=service.location_name
+            div.table-card
+                table
+                    caption.sr-only Mass and service times
+                    thead
+                        tr
+                            th(scope="col") Service
+                            th(scope="col") When
+                            th(scope="col") Location
+                    tbody
+                        for service in data.serviceTimes
+                            tr
+                                td(data-label="Service")
+                                    strong=service.service_type
+                                td(data-label="When")
+                                    +to-service-time(
+                                        service.weekday,
+                                        service.day,
+                                        service.month,
+                                        service.year,
+                                        service.hours,
+                                        service.minutes
+                                    )
+                                td(data-label="Location")=service.location_name
 
-    div.slideshows-container
-        div.slideshow-container
-            div.mySlides.fade
-                img.slideshow(src="/images/slideshows/st_marys/1.jpg")
-            div.mySlides.fade
-                img.slideshow(src="/images/slideshows/st_marys/2.jpg")
-            div.mySlides.fade
-                img.slideshow(src="/images/slideshows/st_marys/3.jpg")
-            div.mySlides.fade
-                img.slideshow(src="/images/slideshows/st_marys/4.jpg")
+    section.parish-details.section-shell
+        if data.parishPriest
+            article.info-card.info-card--priest
+                p.eyebrow Parish priest
+                h2=data.parishPriest.full_name
+                dl.contact-list
+                    if data.parishPriest.landline
+                        div
+                            dt Presbytery
+                            dd=data.parishPriest.landline
+                    if data.parishPriest.mobile
+                        div
+                            dt Mobile
+                            dd=data.parishPriest.mobile
+                    if data.parishPriest.email
+                        div
+                            dt Email
+                            dd
+                                a(href="mailto:" + data.parishPriest.email)=data.parishPriest.email
+                    if data.parishPriest.address_name
+                        div
+                            dt Post
+                            dd=data.parishPriest.address_name
+
+        article.info-card
+            p.eyebrow Find us
+            h2 Our churches
+            div.location-list
+                for location in data.locations
+                    address
+                        strong=location.house_name
+                        span #{location.house_number} #{location.road_name}
+                        span=location.town
+                        if location.post_town
+                            span=location.post_town
+                        span=location.postcode
+
+    section.gallery-section(aria-labelledby="gallery-title")
+        div.section-shell
+            div.section-heading
+                div
+                    p.eyebrow Life at St Mary's
+                    h2#gallery-title Our church community
+            div.photo-grid
+                figure.photo-grid__large
+                    img(src="/images/slideshows/st_marys/1.jpg", alt="Inside St Mary's Church", loading="lazy")
+                figure
+                    img(src="/images/slideshows/st_marys/2.jpg", alt="A view of the church community", loading="lazy")
+                figure
+                    img(src="/images/slideshows/st_marys/3.jpg", alt="Parish life at St Mary's", loading="lazy")
+                figure
+                    img(src="/images/slideshows/st_marys/4.jpg", alt="The church prepared for worship", loading="lazy")
 
     if isAdmin
-        h2 Hidden Area
-        ul
-            li #[a(href="/admin") Admin area]
-
-    h2 Welcome
-    p On behalf of the parish of #[b St Mary's Edlington], welcome! We are a community based in the #[b Doncaster] area, who gather regularly to worship, to receive the sacraments, to announce the gospel, and to support each other in following #[b Jesus Christ]. Our church services are #[b open to all], and we strive to create communities where all will feel welcome.
-
-    script(type="text/javascript", src="/frontend_scripts/slideshow.js")
+        section.section-shell
+            div.admin-notice
+                strong Parish administration
+                a(href="/admin") Open the admin area →

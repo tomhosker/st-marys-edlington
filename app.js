@@ -3,7 +3,6 @@
  ***********************/
 
 // Login imports.
-const crypto = require("crypto");
 const passport = require("passport");
 const Strategy = require("passport-local").Strategy;
 const connectEnsureLogIn = require("connect-ensure-login");
@@ -23,10 +22,9 @@ passport.deserializeUser(signingin.deserializer);
 // Imports.
 const express = require("express");
 const path = require("path");
-const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const favicon = require("express-favicon");
-const dotenv = require("dotenv").config();
+require("dotenv").config();
 
 // Local imports.
 const Finaliser = require("./lib/finaliser.js");
@@ -41,6 +39,7 @@ const pilgrimagesRouter = require("./routes/pilgrimages.js");
 
 // Error codes.
 const INTERNAL_SERVER_ERROR = 500;
+const NOT_FOUND = 404;
 
 // Let's get cracking.
 const app = express();
@@ -55,12 +54,25 @@ app.locals.pretty = true;
 
 // Use application-level middleware for common functionality, including
 // parsing and session handling.
-app.use(require("body-parser").urlencoded({ extended: true }));
+const isProduction = app.get("env") === "production";
+const sessionSecret = process.env.SESSION_SECRET;
+
+if (isProduction && !sessionSecret) {
+    throw new Error("SESSION_SECRET must be set in production.");
+}
+
+if (isProduction) app.set("trust proxy", 1);
+
 app.use(
     require("express-session")({
-        secret: "keyboard cat",
+        secret: sessionSecret || "local-development-only",
         resave: false,
-        saveUninitialized: false
+        saveUninitialized: false,
+        cookie: {
+            httpOnly: true,
+            sameSite: "lax",
+            secure: isProduction
+        }
     })
 );
 
@@ -73,7 +85,6 @@ app.use(passport.session());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(__dirname + "/public/favicon.ico"));
 
@@ -90,15 +101,12 @@ app.get("/login", (_, res) => res.redirect("/logmein"));
 app.use("/admin", connectEnsureLogIn.ensureLoggedIn(), adminRouter);
 app.post(
     "/login",
-    passport.authenticate(
-        "local",
-        {
-            failureRedirect: "/logmein/failure",
-            successRedirect: "/logmein/success"
-        }
-    )
+    passport.authenticate("local", {
+        failureRedirect: "/logmein/failure",
+        successRedirect: "/logmein/success"
+    })
 );
-app.get("/logout", (req, res) => {
+app.get("/logout", (req, res, next) => {
     req.logout((err) => {
         if (err) return next(err);
         res.redirect("/");
@@ -106,30 +114,27 @@ app.get("/logout", (req, res) => {
 });
 
 // Catch 404 and forward to error handler.
-app.use((req, res, next) => {
+app.use(async (req, res, next) => {
     const finaliser = new Finaliser();
 
-    finaliser.protoRender(req, res, "notfound", { title: "Not Found" });
+    try {
+        res.status(NOT_FOUND);
+        await finaliser.protoRender(req, res, "notfound", {
+            title: "Not Found"
+        });
+    } catch (error) {
+        next(error);
+    }
 });
 
 // Error handler.
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
     // Set locals, only providing error in development.
     res.locals.message = err.message;
     res.locals.error = req.app.get("env") === "development" ? err : {};
     // Render the error page.
     res.status(err.status || INTERNAL_SERVER_ERROR);
     res.render("error");
-});
-
-// Listen, and tell the programmer where to find the website.
-app.listen(app.get("port"), () => {
-    console.log("App running at port number: " + app.get("port"));
-    console.log(
-        "If running locally, navigate to: http://localhost:" +
-        app.get("port") +
-        "/"
-    );
 });
 
 // Exports.
