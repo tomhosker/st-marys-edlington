@@ -3,7 +3,7 @@ extends layout
 block content
     h1 #{title}
 
-    p #[b Children's liturgy classes] are scheduled to take place alongside the following services:
+    p #[b Children’s liturgy classes] are scheduled to take place alongside the following services:
     table.homepage
         tr
             th Service
@@ -22,7 +22,7 @@ block content
                         service.hours,
                         service.minutes
                     )
-                td=service.location_name
+                td=smartApostrophes(service.location_name)
                 if service.childrens_liturgy_remarks
                     td !{service.childrens_liturgy_remarks}
                 else

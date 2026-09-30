@@ -3,7 +3,8 @@ const expect = require("expect");
 const {
     makeSummaries,
     processRawData,
-    runningLocally
+    runningLocally,
+    smartApostrophes
 } = require("../lib/utils.js");
 
 describe("Utilities", function () {
@@ -54,5 +55,12 @@ describe("Utilities", function () {
                 }
             ]
         );
+    });
+
+    it("improves apostrophes in display text without rewriting other punctuation", function () {
+        expect(smartApostrophes("St Mary's -- Edlington")).toBe(
+            "St Mary’s -- Edlington"
+        );
+        expect(smartApostrophes(null)).toBe(null);
     });
 });

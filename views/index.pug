@@ -1,33 +1,14 @@
 extends layout
 
 block content
-    section.hero
-        div.hero__image(role="img", aria-label="The exterior of St Mary's Church in Edlington")
-        div.hero__shade
-        div.hero__content
-            p.eyebrow Welcome to
-            h1 St Mary's Edlington
-            p.hero__lead A Catholic parish where faith is celebrated, community is cherished, and everyone is welcome.
-            div.hero__actions
-                a.button.button--primary(href="#service-times") View service times
-                if globalData.mostRecentNewsletterLink
-                    a.button.button--ghost(href=globalData.mostRecentNewsletterLink) Read the newsletter
-
-    section.intro.section-shell
-        div.intro__heading
-            p.eyebrow Our parish
-            h2 A place to belong
-        div.intro__copy
-            p We are a community in the Doncaster area, gathering to worship, receive the sacraments, share the Gospel, and support one another in following Jesus Christ.
-            p Our church services are open to all. Whether you are a familiar face, returning after time away, or visiting for the first time, you are warmly invited.
-
-    section#service-times.services-section
+    section#service-times.services-section.services-section--primary
         div.section-shell
             div.section-heading
-                div
-                    p.eyebrow Worship with us
-                    h2 Mass & service times
-                p.section-heading__note Times can occasionally change. Please check the latest newsletter for seasonal updates.
+                h1 Service Times
+                p.section-heading__note
+                    span Times may change around holy days.
+                    if globalData.mostRecentNewsletterLink
+                        a(href=globalData.mostRecentNewsletterLink) Check the latest newsletter
 
             div.table-card
                 table
@@ -51,7 +32,21 @@ block content
                                         service.hours,
                                         service.minutes
                                     )
-                                td(data-label="Location")=service.location_name
+                                td(data-label="Location")=smartApostrophes(service.location_name)
+
+    section.hero
+        div.hero__image(role="img", aria-label="The exterior of St Mary’s Church in Edlington")
+        div.hero__content
+            p.eyebrow Welcome
+            h2 St Mary’s, Edlington
+            p.hero__lead A Roman Catholic parish serving Edlington and the surrounding communities.
+
+    section.intro.section-shell
+        div.intro__heading
+            h2 Welcome to our parish
+        div.intro__copy
+            p We are a community in the Doncaster area, gathering to worship, receive the sacraments, share the Gospel, and support one another in following Jesus Christ.
+            p Our church services are open to all. Whether you are a familiar face, returning after time away, or visiting for the first time, you are warmly invited.
 
     section.parish-details.section-shell
         if data.parishPriest
@@ -75,15 +70,15 @@ block content
                     if data.parishPriest.address_name
                         div
                             dt Post
-                            dd=data.parishPriest.address_name
+                            dd=smartApostrophes(data.parishPriest.address_name)
 
         article.info-card
-            p.eyebrow Find us
+            p.eyebrow Addresses
             h2 Our churches
             div.location-list
                 for location in data.locations
                     address
-                        strong=location.house_name
+                        strong=smartApostrophes(location.house_name)
                         span #{location.house_number} #{location.road_name}
                         span=location.town
                         if location.post_town
@@ -94,15 +89,15 @@ block content
         div.section-shell
             div.section-heading
                 div
-                    p.eyebrow Life at St Mary's
-                    h2#gallery-title Our church community
+                    p.eyebrow Photographs
+                    h2#gallery-title Around the parish
             div.photo-grid
                 figure.photo-grid__large
-                    img(src="/images/slideshows/st_marys/1.jpg", alt="Inside St Mary's Church", loading="lazy")
+                    img(src="/images/slideshows/st_marys/1.jpg", alt="Inside St Mary’s Church", loading="lazy")
                 figure
                     img(src="/images/slideshows/st_marys/2.jpg", alt="A view of the church community", loading="lazy")
                 figure
-                    img(src="/images/slideshows/st_marys/3.jpg", alt="Parish life at St Mary's", loading="lazy")
+                    img(src="/images/slideshows/st_marys/3.jpg", alt="Parish life at St Mary’s", loading="lazy")
                 figure
                     img(src="/images/slideshows/st_marys/4.jpg", alt="The church prepared for worship", loading="lazy")
 

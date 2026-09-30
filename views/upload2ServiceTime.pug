@@ -3,9 +3,9 @@ extends layout
 block content
     helpbox
         h2 Help
-        p Fill in the form opposite and press ``Submit'' to add a new service time.
+        p Fill in the form opposite and press “Submit” to add a new service time.
         ol
-            li The #[i service type] refers to the sort of service to take place, e.g. `Mass'.
+            li The #[i service type] refers to the sort of service to take place, e.g. ‘Mass’.
             li Make sure the #[i service time] is set to AM or PM, as appropriate.
             li Decide whether to add a #[i service weekday] or a #[i service date]:
             ul
@@ -43,10 +43,10 @@ block content
                 for row in data.realWorldAddresses.rows
                     option(value=row[0]) #{row[1]}
         p
-            | Tick here if the service includes a children's liturgy.
+            | Tick here if the service includes a children’s liturgy.
             input(type="checkbox", name="has_childrens_liturgy")
         p
-            | Special information about the children's liturgy (if applicable):
+            | Special information about the children’s liturgy (if applicable):
             input(type="text", name="childrens_liturgy_remarks")
         p
             | Remarks:

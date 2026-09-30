@@ -20,7 +20,7 @@ router.get("/childrens-liturgies", async (req, res, next) => {
     try {
         const data = await orm.gatherDataAsync();
         await finaliser.protoRender(req, res, "childrens-liturgies", {
-            title: "Children's Liturgies",
+            title: "Children’s Liturgies",
             data
         });
     } catch (error) {

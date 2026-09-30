@@ -15,15 +15,6 @@ function makeRetriever(rows = []) {
 }
 
 describe("Finaliser", function () {
-    it("converts typographic apostrophes and dashes", function () {
-        expect(Finaliser.fixApostrophes("``Hello'' `parish'")).toBe(
-            "&ldquo;Hello&rdquo; &lsquo;parish&rsquo;"
-        );
-        expect(Finaliser.fixDashes("one---two--three")).toBe(
-            "one&mdash;two&ndash;three"
-        );
-    });
-
     it("returns the most recent newsletter and closes its retriever", async function () {
         const retriever = makeRetriever([{ link: "/latest.pdf" }]);
         const finaliser = new Finaliser(() => retriever);
@@ -47,7 +38,7 @@ describe("Finaliser", function () {
         expect(retriever.closed).toBe(true);
     });
 
-    it("adds shared page data and sends corrected HTML", async function () {
+    it("adds shared page data and sends rendered HTML", async function () {
         const retriever = makeRetriever([]);
         const finaliser = new Finaliser(() => retriever);
         let renderedProperties;
@@ -70,6 +61,6 @@ describe("Finaliser", function () {
             mostRecentNewsletterLink: null
         });
         expect(renderedProperties.footstamp).toMatch(/^\d{4}-\d{2}-\d{2}T/);
-        expect(sentHtml).toBe("<p>Parish&ndash;news</p>");
+        expect(sentHtml).toBe("<p>Parish--news</p>");
     });
 });

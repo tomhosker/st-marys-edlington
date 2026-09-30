@@ -28,6 +28,7 @@ require("dotenv").config();
 
 // Local imports.
 const Finaliser = require("./lib/finaliser.js");
+const { smartApostrophes } = require("./lib/utils.js");
 const indexRouter = require("./routes/index.js");
 const loginRouter = require("./routes/logmein.js");
 const profileRouter = require("./routes/profile.js");
@@ -43,6 +44,7 @@ const NOT_FOUND = 404;
 
 // Let's get cracking.
 const app = express();
+app.locals.smartApostrophes = smartApostrophes;
 
 // "View" engine setup.
 app.set("views", path.join(__dirname, "views"));

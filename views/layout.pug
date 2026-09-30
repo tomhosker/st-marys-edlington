@@ -48,8 +48,8 @@ html(lang="en")
         meta(charset="utf-8")
         meta(name="viewport", content="width=device-width, initial-scale=1")
         meta(name="theme-color", content="#173f35")
-        meta(name="description", content="St Mary's Roman Catholic Church in Edlington, Doncaster. Service times, parish news and community information.")
-        title #{title} | St Mary's Edlington
+        meta(name="description", content="St Mary’s Roman Catholic Church in Edlington, Doncaster. Service times, parish news and community information.")
+        title #{title} | St Mary’s Edlington
         link(rel="icon", href="/favicon.ico")
         link(rel="stylesheet", href="/stylesheets/style.css")
     body
@@ -57,11 +57,11 @@ html(lang="en")
 
         header.site-header
             div.site-header__inner
-                a.brand(href="/", aria-label="St Mary's Edlington home")
-                    span.brand__mark(aria-hidden="true") ✦
+                a.brand(href="/", aria-label="St Mary’s Edlington home")
+                    span.brand__mark(aria-hidden="true") ✝
                     span.brand__text
-                        strong St Mary's
-                        small Roman Catholic Church · Edlington
+                        strong St Mary’s Roman Catholic Church
+                        small Edlington, Doncaster
 
                 nav.site-nav(aria-label="Main navigation")
                     a(href="/") Home
@@ -69,9 +69,9 @@ html(lang="en")
                     a(href="/youth/childrens-liturgies") Children & youth
                     a(href="/pilgrimages") Pilgrimages
                     if globalData.mostRecentNewsletterLink
-                        a.nav-cta(href=globalData.mostRecentNewsletterLink) Latest newsletter
+                        a(href=globalData.mostRecentNewsletterLink) Latest newsletter
                     else
-                        a.nav-cta(href="/newsletters") Newsletters
+                        a(href="/newsletters") Newsletters
 
         main#main-content.site-main
             block content
@@ -79,8 +79,8 @@ html(lang="en")
         footer.site-footer
             div.site-footer__inner
                 div
-                    p.site-footer__name St Mary's Edlington
-                    p A welcoming Roman Catholic community in Doncaster.
+                    p.site-footer__name St Mary’s Edlington
+                    p Roman Catholic Church in the Diocese of Hallam.
                 nav.footer-nav(aria-label="Footer navigation")
                     a(href="/") Home
                     a(href="/pilgrimages") Pilgrimages
