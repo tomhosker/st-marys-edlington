@@ -32,25 +32,25 @@
 
 /* Muted liturgical accents; paper, ink and table surfaces stay consistent. */
 :root[data-liturgical-colour="purple"] {
-    --forest: #493651;
-    --forest-light: #65496f;
-    --season-accent: #80618e;
-    --season-wash: #efebf1;
-    --season-footer: #332c39;
+    --forest: #401653;
+    --forest-light: #572570;
+    --season-accent: #622780;
+    --season-wash: #eee7f2;
+    --season-footer: #291632;
 }
 :root[data-liturgical-colour="red"] {
-    --forest: #612f32;
-    --forest-light: #823e43;
-    --season-accent: #a45256;
-    --season-wash: #f3eae7;
-    --season-footer: #3e2c2d;
+    --forest: #941c25;
+    --forest-light: #b0242e;
+    --season-accent: #d12632;
+    --season-wash: #f8e9e5;
+    --season-footer: #452025;
 }
 :root[data-liturgical-colour="rose"] {
-    --forest: #633e4c;
-    --forest-light: #825265;
-    --season-accent: #b87f94;
-    --season-wash: #f4ebef;
-    --season-footer: #3d3036;
+    --forest: #991d54;
+    --forest-light: #b32365;
+    --season-accent: #e3448b;
+    --season-wash: #fce5ef;
+    --season-footer: #482037;
 }
 :root[data-liturgical-colour="white"],
 :root[data-liturgical-colour="gold"] {
@@ -814,4 +814,61 @@ textarea {
 }
 :root:is([data-liturgical-colour="white"], [data-liturgical-colour="gold"]) .liturgical-rule {
     height: 8px;
+}
+
+/* Carry Ordinary Time green through the cards and their small headings. */
+:root[data-liturgical-colour="green"] .info-card,
+:root[data-liturgical-colour="green"] .table-card {
+    border-top: 4px solid var(--season-accent);
+}
+:root[data-liturgical-colour="green"] .eyebrow {
+    color: var(--forest);
+}
+
+/* Crimson for the blood and fire of red liturgical days. */
+:root[data-liturgical-colour="red"] .info-card,
+:root[data-liturgical-colour="red"] .table-card {
+    border-top: 4px solid var(--season-accent);
+}
+:root[data-liturgical-colour="red"] .eyebrow {
+    color: var(--forest);
+}
+:root[data-liturgical-colour="red"] th {
+    background: #fbeeea;
+}
+:root[data-liturgical-colour="red"] .site-footer {
+    border-top: 3px solid var(--season-accent);
+}
+
+/* Deep purple carries through the same accents as the red palette. */
+:root[data-liturgical-colour="purple"] .info-card,
+:root[data-liturgical-colour="purple"] .table-card {
+    border-top: 4px solid var(--season-accent);
+}
+:root[data-liturgical-colour="purple"] .eyebrow {
+    color: var(--forest);
+}
+:root[data-liturgical-colour="purple"] th {
+    background: #f3edf7;
+}
+:root[data-liturgical-colour="purple"] .site-footer {
+    border-top: 3px solid var(--season-accent);
+}
+
+/* Joyful rose accents for the calendar's rose days. */
+:root[data-liturgical-colour="rose"] .info-card,
+:root[data-liturgical-colour="rose"] .table-card {
+    border-top: 4px solid var(--season-accent);
+}
+:root[data-liturgical-colour="rose"] .eyebrow {
+    color: var(--forest);
+}
+:root[data-liturgical-colour="rose"] th {
+    background: #fff0f6;
+}
+:root[data-liturgical-colour="rose"] .site-footer {
+    border-top: 3px solid var(--season-accent);
+}
+:root[data-liturgical-colour="rose"] .services-section--primary .section-heading {
+    border-bottom-color: var(--season-accent);
 }

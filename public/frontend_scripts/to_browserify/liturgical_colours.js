@@ -3,6 +3,12 @@ const RomCal = require("romcal");
 
 function applyLiturgicalTheme(today = new Date()) {
     try {
+        // Preview a palette for this page only; ordinary visits use the calendar.
+        const preview = new URLSearchParams(window.location.search).get("liturgical-preview");
+        if (["green", "purple", "red", "rose", "white", "gold"].includes(preview)) {
+            document.documentElement.dataset.liturgicalColour = preview;
+            return;
+        }
         // Use the parish date even when a visitor is in another time zone.
         const parts = new Intl.DateTimeFormat("en-GB", {
             timeZone: "Europe/London",
