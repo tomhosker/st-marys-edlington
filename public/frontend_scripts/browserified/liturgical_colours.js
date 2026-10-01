@@ -43133,79 +43133,35 @@ var _default = {
 };
 exports["default"] = _default;
 },{}],76:[function(require,module,exports){
-/*
-This is a front end script which changes the colours of elements according to
-the current liturgical colour.
-*/
-
-// Imports.
+// Keep the parish calendar local: no network request is needed for the theme.
 const RomCal = require("romcal");
 
-// A helper function.
-function recolorElements(className, field, color) {
-    const elements = document.querySelectorAll("." + className);
-
-    elements.forEach((element) => {
-        element.style[field] = color;
-    });
-}
-
-// A helper function.
-function convertRawColor(rawColor) {
-    if (rawColor === "RED") return "red";
-    else if (rawColor === "ROSE") return "deeppink";
-    else if (rawColor === "PURPLE") return "purple";
-    else if (rawColor === "GREEN") return "green";
-    else if (rawColor === "WHITE") return "gold";
-    else if (rawColor === "GOLD") return "gold";
-
-    throw new Error("Unrecognised liturgical color: " + rawColor);
-}
-
-// The class in question.
-class ColorChanger {
-    constructor() {
-        this.litColor = "gold";
-        this.liturgicalColor = this.getLiturgicalColor();
-    }
-
-    getLiturgicalColor() {
-        const calendar = RomCal.calendarFor();
-        const today = new Date();
-        const todayAtMidnight = new Date(
-            Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())
-        );
-        const moment = todayAtMidnight.toISOString();
-        let result;
-
-        for (let i = 0; i < calendar.length; i++) {
-            if (calendar[i].moment === moment) {
-                result = convertRawColor(
-                    calendar[i].data.meta.liturgicalColor.key
-                );
-                return result;
-            }
-        }
-
-        throw new Error("No matching color found.");
-    }
-
-    recolorElements(className, field) {
-        const elements = document.querySelectorAll("." + className);
-
-        elements.forEach((element) => {
-            element.style[field] = this.liturgicalColor;
+function applyLiturgicalTheme(today = new Date()) {
+    try {
+        // Use the parish date even when a visitor is in another time zone.
+        const parts = new Intl.DateTimeFormat("en-GB", {
+            timeZone: "Europe/London",
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+        }).formatToParts(today);
+        const part = (type) => parts.find((value) => value.type === type).value;
+        const date = `${part("year")}-${part("month")}-${part("day")}`;
+        const calendar = RomCal.calendarFor({
+            year: Number(part("year")),
+            country: "england",
         });
-    }
-
-    recolor() {
-        this.recolorElements("liturgical-background", "background-color");
-        this.recolorElements("liturgical-border", "border-color");
+        const day = calendar.find((entry) => entry.moment.slice(0, 10) === date);
+        const colour = day && day.data.meta.liturgicalColor.key.toLowerCase();
+        if (["green", "purple", "red", "rose", "white", "gold"].includes(colour)) {
+            document.documentElement.dataset.liturgicalColour = colour;
+        }
+    } catch (error) {
+        // The neutral default palette remains usable if calendar data is unavailable.
+        console.warn("Unable to apply the liturgical colour.", error);
     }
 }
 
-// Let's get cracking...
-const colorChanger = new ColorChanger();
-colorChanger.recolor();
+applyLiturgicalTheme();
 
 },{"romcal":62}]},{},[76]);

@@ -68,13 +68,13 @@ html(lang="en")
 
                 nav.site-nav(aria-label="Main navigation")
                     a(href="/") Home
-                    a(href="/#service-times") Service times
                     a(href="/youth/childrens-liturgies") Children & youth
                     a(href="/pilgrimages") Pilgrimages
                     if globalData.mostRecentNewsletterLink
                         a(href=globalData.mostRecentNewsletterLink) Latest newsletter
                     else
                         a(href="/newsletters") Newsletters
+                    button(type="button") More
 
         main#main-content.site-main
             block content
